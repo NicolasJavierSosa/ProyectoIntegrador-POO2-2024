@@ -115,7 +115,6 @@ Con una plataforma de ventas en línea bien estructurada y eficiente, la empresa
     - ***Tipo:*** No funcional (seguridad y accesibilidad)
     - ***Prioridad:*** Alta
     - ***Críterios de aceptación:*** 
-        - El sistema debe integrar métodos de pago que cumpla con estándares de seguricad, como PCI-DSS.
         - La información de pago debe procesarse en un entorno seguro sin almacenar datos sensibles en el sistema.
     - ***Impacto:*** Aumenta la confianza y seguridad del usuario al realizar pagos, al mismo tiempo que mejora la accesibilidad mediante opciones de pago diversificadas y seguras.
 
