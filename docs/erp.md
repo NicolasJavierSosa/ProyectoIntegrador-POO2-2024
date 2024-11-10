@@ -1,4 +1,6 @@
-# Especificación de requisitos de software
+<h1 style="text-align:center;">Especificación de requisitos de software</h1>
+
+---
 
 ## Enunciado del problema
 
