@@ -114,8 +114,7 @@ Con una plataforma de ventas en línea bien estructurada y eficiente, la empresa
 13. **COMO** usuario **QUIERO** que el sistema sea seguro al momento de realizar pagos **PARA** tener la tranquilidad de que los datos están protegidos y las compras son confiables
     - ***Tipo:*** No funcional (seguridad y accesibilidad)
     - ***Prioridad:*** Alta
-    - ***Críterios de aceptación:*** 
-        - La información de pago debe procesarse en un entorno seguro sin almacenar datos sensibles en el sistema.
+    - ***Críterios de aceptación:*** La información de pago debe procesarse en un entorno seguro sin almacenar datos sensibles en el sistema.
     - ***Impacto:*** Aumenta la confianza y seguridad del usuario al realizar pagos, al mismo tiempo que mejora la accesibilidad mediante opciones de pago diversificadas y seguras.
 
 ## Arquitectura de software
