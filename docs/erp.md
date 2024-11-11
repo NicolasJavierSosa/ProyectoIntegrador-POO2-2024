@@ -23,15 +23,15 @@ Los problemas existentes actualmente que se buscan resolver afectan a:
 
 ## Solución propuesta 
 
-El sistema permitirá a los clientes ==explorar el catálogo de productos== ecológicos desde cualquier dispositivo con conexión a internet, eliminando la necesidad de visitas presenciales y brindando una experiencia de compra cómoda y accesible.
+El sistema permitirá a los clientes explorar el catálogo de productos ecológicos desde cualquier dispositivo con conexión a internet, eliminando la necesidad de visitas presenciales y brindando una experiencia de compra cómoda y accesible.
 
-Mediante la ==gestión automatizada de inventario==, el software controlará en tiempo real la entrada y salida de productos, minimizando errores y optimizando el abastecimiento. Esto reducirá significativamente el tiempo y esfuerzo requeridos para el control de stock, mejorando la eficiencia operativa.
+Mediante la gestión automatizada de inventario, el software controlará en tiempo real la entrada y salida de productos, minimizando errores y optimizando el abastecimiento. Esto reducirá significativamente el tiempo y esfuerzo requeridos para el control de stock, mejorando la eficiencia operativa.
 
-El software permitirá a los clientes ==elegir entre varios métodos de pago==, como tarjetas o transferencias, brindando flexibilidad y facilitando el cierre de ventas al adaptarse a las preferencias de los clientes.
+El software permitirá a los clientes elegir entre varios métodos de pago, como tarjetas o transferencias, brindando flexibilidad y facilitando el cierre de ventas al adaptarse a las preferencias de los clientes.
 
-El sistema ==calculará automáticamente los precios con descuentos aplicables y gestionará la venta de productos en paquetes==, lo que permitirá a la empresa realizar ofertas personalizadas y mejorar su atractivo para clientes que buscan comprar al por mayor, incrementando así las ventas.
+El sistema calculará automáticamente los precios con descuentos aplicables y gestionará la venta de productos en paquetes, lo que permitirá a la empresa realizar ofertas personalizadas y mejorar su atractivo para clientes que buscan comprar al por mayor, incrementando así las ventas.
 
-Al facilitar el ==acceso en línea== y mejorar la experiencia de compra, la empresa podrá atraer nuevos clientes, promoviendo una expansión en el alcance del negocio.
+Al facilitar el acceso en línea y mejorar la experiencia de compra, la empresa podrá atraer nuevos clientes, promoviendo una expansión en el alcance del negocio.
 
 Con una plataforma de ventas en línea bien estructurada y eficiente, la empresa reforzará su imagen de marca como un proveedor moderno y profesional de productos ecológicos, aumentando su prestigio en el mercado.
 
