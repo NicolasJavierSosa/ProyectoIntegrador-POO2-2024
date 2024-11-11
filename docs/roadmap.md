@@ -1,6 +1,9 @@
 # Plan tentativo
 En este plan tentativo describimos las historias de usuario que se desarrollaremos en cada iteración del proyecto, el cual está orientado a construir un sistema funcional de ventas en linea que gestione productos, carritos de compra y métodos de pago. El proyecto está dividido en dos iteraciones clave, cada una con entregables específicos que permitirán alcanzar una versión mínima viable en la Iteración 1 y una funcionalidad completa en la Iteración 2. La planificación de las historias de usuario se ha realizado en función de la prioridad de cada tarea y de su dependencia en el flujo general del sistema.
 
+Enlace a Roadmap de git:
+[RoadMap-Git](https://github.com/users/NicolasJavierSosa/projects/1/views/4)
+
 ## Iteración 1
 ### Objetivo: 
 Establecer la base de datos, conectar la aplicación con la misma y crear las interfaces básicas necesarias para el registro de usuario y la visualización de productos.
