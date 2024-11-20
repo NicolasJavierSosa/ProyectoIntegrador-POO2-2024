@@ -15,7 +15,7 @@ En cuanto a las tareas específicas:
 diagrama de clases UML que refleja el "modelo" solo para esta iteración.
 Utilicen un software para dibujar esto (por ejemplo, diagrams.net, planttext.com) y guarden el diagrama como una imagen. Incluso pueden usar umple.
 
-![Diagrama de clases](https://github.com/user-attachments/assetsTiendaEcologica(DDC).jpg)
+![TiendaEcologica(DDC)](https://github.com/user-attachments/assets/10194113-aafe-4c2a-9304-ef2bbefc13bf)
 
 
 # Wireframe y caso de uso
