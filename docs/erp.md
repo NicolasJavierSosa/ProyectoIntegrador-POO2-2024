@@ -42,92 +42,112 @@ Con una plataforma de ventas en línea bien estructurada y eficiente, la empresa
     - ***Tipo:*** Funcional
     - ***Prioridad:*** Alta
     - ***Criterios de aceptación:*** 
-       - [ ] El sistema debe permitir el registro de productos, gestionar inventario, y registrar transacciones.
+       - El sistema debe permitir el registro y modificación de productos con detalles como nombre, descripción, precio y cantidad disponible.
+       - El sistema debe permitir la gestión de inventario en tiempo real, actualizando automáticamente las cantidades disponibles al realizar ventas.
+       - 
     - ***Impacto:*** Facilita la operación general del negocio y la gestión de inventario.
 
 2. **COMO** usuario **QUIERO** que se vea un catálogo de los productos disponibles en la página/aplicación **PARA** tener una vista general de lo disponible.
     - ***Tipo:*** Funcional
     - ***Prioridad:*** Alta
     - ***Criterios de aceptación:*** 
-        - [ ] El catálogo debe mostrar imágenes, precios, y descripciones de los productos.
+        - El catálogo debe mostrar imágenes, precios, y descripciones de los productos.
     - ***Impacto:*** Mejora la experiencia de los usuarios al facilitar la navegación y la selección de productos.
 
 3. **COMO** cliente **QUIERO** disponer de un carrito de compras **PARA** la organización de mis compras.
     - ***Tipo:*** Funcional
     - ***Prioridad:*** Alta
     - ***Criterios de aceptación:*** 
-        - [ ] El carrito debe permitir agregar, eliminar y modificar la cantidad de productos.
+        - El carrito debe permitir agregar, eliminar y modificar la cantidad de productos.
+        - El carrito debe calcular automáticamente el total de la compra en base a la cantidad y precio de los productos.
     - ***Impacto:*** Mejora la conveniencia de los clientes durante el proceso de compra.
 
 4. **COMO** usuario **QUIERO** disponer de múltiples formas de pago **PARA** la adquisición de productos.
     - ***Tipo:*** Funcional
     - ***Prioridad:*** Media
     - ***Criterios de aceptación:*** 
-        - [ ] El sistema debe aceptar realizar pagos con tarjetas de crédito, débito y transferencias.
+        - El sistema debe aceptar realizar pagos con tarjetas de crédito, débito y transferencias.
+        - El sistema debe confirmar la transacción exitosa o fallida en tiempo real.
     - ***Impacto:*** Incrementa la accesibilidad y conveniencia para clientes de distintos perfiles.
+
 
 5. **COMO** gerente **QUIERO** una alerta de stock mínimo **PARA** no quedarme sin stock.
     - ***Tipo:*** Funcional
     - ***Prioridad:*** Baja
     - ***Criterios de aceptación:*** 
-        - [ ] El sistema debe enviar una alerta al gerente cuando el stock de un producto alcance el umbral mínimo.
+        - El sistema debe permitir configurar umbrales de stock mínimo para cada producto.
+        - El sistema debe enviar una alerta al gerente cuando el stock de un producto alcance el umbral mínimo.
     - ***Impacto:*** Evita el agotamiento de inventario, asegurando disponibilidad constante de productos.
 
 6. **COMO** cliente **QUIERO** que los productos se separen por categorías **PARA** poder encontrar de manera rápida y sencilla lo que busco en la tienda online.
     - ***Tipo:*** Funcional
     - ***Prioridad:*** Baja
     - ***Criterios de aceptación:*** 
-        - [ ] Los productos deben clasificarse en categorías como alimentos, ropa, productos reutilizables, etc.
+        - Los productos deben clasificarse en categorías como alimentos, ropa, productos reutilizables, etc.
+        - El sistema debe permitir buscar y filtrar productos dentro de cada categoría.
+        - Las categorías deben ser configurables por el gerente, permitiendo añadir o quitar categorías.
     - ***Impacto:*** Facilita la navegación en la tienda y mejora la experiencia de compra.
 
 7. **COMO** usuario **QUIERO** un buscador de productos por nombre **PARA** hacer búsquedas específicas mucho más rápido.
     - ***Tipo:*** Funcional
     - ***Prioridad:*** Media
     - ***Criterios de aceptación:*** 
-        - [ ] El buscador debe permitir búsqueda por nombre de producto y mostrar resultados instantáneamente.
+        - El buscador debe sugerir productos a medida que el usuario escribe en el campo de búsqueda.
+        - El buscador debe permitir búsqueda por nombre de producto y mostrar resultados instantáneamente.
     - ***Impacto:*** Aumenta la eficiencia en la localización de productos específicos.
 
 8. **COMO** usuario **QUIERO** poseer filtros en el buscador **PARA** obtener conjuntos de productos con ciertas características.
     - ***Tipo:*** Funcional
     - ***Prioridad:*** Baja
     - ***Criterios de aceptación:*** 
-        - [ ] El sistema debe permitir filtrar productos por precio, categoría y disponibilidad.
+        - Los filtros deben permitir combinar varios criterios como precio y categoría.
+        - El sistema debe permitir deshacer o restablecer filtros fácilmente.
     - ***Impacto:*** Mejora la personalización y precisión de la búsqueda para los usuarios.
 
 9. **COMO** gerente **QUIERO** que la aplicación de descuentos a productos esté automatizada **PARA** optimizar el proceso de cobro.
     - ***Tipo:*** Funcional
     - ***Prioridad:*** Media
     - ***Criterios de aceptación:*** 
-        - [ ] El sistema debe aplicar automáticamente los descuentos configurados a los productos en el carrito.
+        - El sistema debe mostrar el descuento aplicado en el carrito de compras junto al precio original(subtotal) y el precio descontado(total).
+        - El sistema debe aplicar automáticamente los descuentos configurados a los productos en el carrito.
+        - Los descuentos deben aplicarse de acuerdo con reglas preconfiguradas, como porcentaje o monto fijo.
+        - El gerente debe poder programar y administrar descuentos por temporadas.
     - ***Impacto:*** Optimiza el proceso de ventas y facilita la gestión de promociones.
 
 10. **COMO** gerente **QUIERO** posibilitar la venta de productos por paquetes **PARA** facilitar la adquisición de mayor cantidad de productos para quien desee hacerlo.
     - ***Tipo:*** Funcional
     - ***Prioridad:*** Alta
     - ***Criterios de aceptación:*** 
-    - [ ] El sistema debe ofrecer opciones de paquetes preconfigurados con precios especiales.
+    - El sistema debe ofrecer opciones de paquetes preconfigurados con precios especiales.
+    - El sistema debe permitir configurar distintos tipos de paquetes con diferentes combinaciones de productos.
+    - El sistema debe permitir seleccionar la cantidad de paquetes a comprar.
+    - Los paquetes deben poder añadirse al carrito y ser gestionados como una única unidad.
     - ***Impacto:*** Facilita compras al por mayor y fomenta ventas más grandes.
+
 
 11. **COMO** gerente **QUIERO** poder designar qué productos aparecerán en el catálogo **PARA** alterar la disposición de los productos.
     - ***Tipo:*** Funcional
     - ***Prioridad:*** Baja
     - ***Criterios de aceptación:*** 
-        - [ ] El sistema debe permitir al gerente marcar ciertos productos para que aparezcan destacados o en una posición específica.
+        - El sistema debe permitir al gerente marcar ciertos productos para que aparezcan destacados o en una posición específica.
     - ***Impacto:*** Permite un control sobre la visibilidad de productos para estrategias de venta específicas.
+
 
 ### Requisitos No funcionles
 12. **COMO** usuario **QUIERO** una interfaz intuitiva y fácil de usar **PARA** un mejor uso del sistema.
     - ***Tipo:*** Usabilidad
     - ***Prioridad:*** Alta
     - ***Criterios de aceptación:*** 
-        - [ ] La interfaz debe seguir principios de diseño intuitivos, con menús claros y accesibles.
+        - La interfaz debe seguir principios de diseño intuitivos, con menús claros y accesibles.
+        - La interfaz debe estar optimizada para dispositivos móviles y de escritorio.
     - ***Impacto:*** Aumenta la satisfacción del usuario y reduce la curva de aprendizaje.
 
 13. **COMO** usuario **QUIERO** que el sistema sea seguro al momento de realizar pagos **PARA** tener la tranquilidad de que los datos están protegidos y las compras son confiables
     - ***Tipo:*** No funcional (seguridad y accesibilidad)
     - ***Prioridad:*** Alta
     - ***Críterios de aceptación:*** 
-        - [ ] La información de pago debe procesarse en un entorno seguro sin almacenar datos sensibles en el sistema.
+        - La información de pago debe procesarse en un entorno seguro sin almacenar datos sensibles en el sistema.
+        - La autenticación en dos pasos debe estar disponible para una capa adicional de seguridad.
     - ***Impacto:*** Aumenta la confianza y seguridad del usuario al realizar pagos, al mismo tiempo que mejora la accesibilidad mediante opciones de pago diversificadas y seguras.
 
 ## Arquitectura de software
