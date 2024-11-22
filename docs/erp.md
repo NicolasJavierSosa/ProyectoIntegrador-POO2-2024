@@ -44,7 +44,6 @@ Con una plataforma de ventas en línea bien estructurada y eficiente, la empresa
     - ***Criterios de aceptación:*** 
        - El sistema debe permitir el registro y modificación de productos con detalles como nombre, descripción, precio y cantidad disponible.
        - El sistema debe permitir la gestión de inventario en tiempo real, actualizando automáticamente las cantidades disponibles al realizar ventas.
-       - 
     - ***Impacto:*** Facilita la operación general del negocio y la gestión de inventario.
 
 2. **COMO** usuario **QUIERO** que se vea un catálogo de los productos disponibles en la página/aplicación **PARA** tener una vista general de lo disponible.

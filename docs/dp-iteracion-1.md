@@ -90,5 +90,5 @@ un boceto simple (o algunos) de cómo se verá la interfaz de usuario, acompaña
 3. Seleccionar frameworks.
 4. Crear el modelo.
 5. Implementar la base de datos.
-6. Implementar funciones básicas(Cátalogo de productos, compra de un producto, inicio de sesión).
+6. Implementar funciones básicas(Cátalogo de productos, compra de un producto, pago del producto).
 7. Implementación de un método pago para el producto.
