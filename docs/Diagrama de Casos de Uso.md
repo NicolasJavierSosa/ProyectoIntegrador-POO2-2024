@@ -1,7 +1,7 @@
 # Descripción del Diagrama de Casos de Uso
 
 ## Introducción
-El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoIntegrador-POO2-2024/blob/main/Imagenes/Diagrama%20de%20Casos%20de%20Uso%20.jpg) representa un **Sistema** que interactúa con dos tipos de actores principales: **Cliente** y **Administrador**. Cada actor tiene acceso a diferentes funcionalidades, organizadas como casos de uso. Además, se emplean relaciones de **<<include>>** y **<<extend>>** para detallar dependencias o extensiones entre los casos de uso.
+El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoIntegrador-POO2-2024/blob/main/Imagenes/Tienda%20Ecol%C3%B3gica%20-%20DCU%20.jpg) representa un **Sistema** que interactúa con dos tipos de actores principales: **Cliente** y **Administrador**. Cada actor tiene acceso a diferentes funcionalidades, organizadas como casos de uso. Además, se emplean relaciones de **<<include>>** y **<<extend>>** para detallar dependencias o extensiones entre los casos de uso.
 
 ---
 
