@@ -8,7 +8,7 @@ Para mantener la cohesión, todos los grupos trabajamos en constante comunicaci�
 En cuanto a las tareas específicas:
 - **Diseño del Diagrama de Clases:** Gustavo Melgarejo y Máximo Gigena fueron los responsables de elaborar el diagrama de clases inicial. Tras una reunión conjunta con todos los miembros, se discutieron los patrones de diseño y las clases clave para el proyecto, logrando un diseño base que fue ajustado con los aportes de todo el equipo.
 - **Diseño de Pantallas y Selección de Framework:** Nicolás Sosa y Lautaro Fernández se encargaron de elegir el diseño visual de las pantallas y proponer los frameworks que mejor se adaptaban a los requerimientos del sistema.
-- **Backend y documentación:** Hernán Lovera y Bianca Eitner trabajaron en el modelo del proyecto y en la creación de archivos de documentación. Mientras el equipo de diseño definía las bases visuales y el equipo de backend avanzaba en el diagrama, este grupo aseguraba que toda la información estuviera organizada y bien documentada para facilitar futuras actualizaciones y el mantenimiento del sistema.
+- **Backend y documentación:** Hernán Lovera y Bianca Eitner trabajaron en el modelo del proyecto y en la creación de archivos de documentación. Mientras el equipo de diseño definía las bases visuales y el equipo de Base de datos avanzaba en el diagrama, este grupo aseguraba que toda la información estuviera organizada y bien documentada para facilitar futuras actualizaciones y el mantenimiento del sistema.
 
 
 # Diseño OO
