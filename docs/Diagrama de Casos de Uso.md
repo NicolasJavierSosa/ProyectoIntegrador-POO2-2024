@@ -89,4 +89,4 @@ El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoInteg
    - Representa casos opcionales o variantes de un caso base.
    - Ejemplo: "Filtrar por Categoría" extiende "Filtrar Búsqueda" añadiendo una opción más específica.
 
---- 
+
