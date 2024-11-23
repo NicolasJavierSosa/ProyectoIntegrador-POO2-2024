@@ -1,14 +1,14 @@
 # Descripción del Diagrama de Casos de Uso
 
 ## Introducción
-El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoIntegrador-POO2-2024/blob/main/Imagenes/Tienda%20Ecol%C3%B3gica%20-%20DCU%20.jpg) representa un **Sistema** que interactúa con dos tipos de actores principales: **Cliente** y **Administrador**. Cada actor tiene acceso a diferentes funcionalidades, organizadas como casos de uso. Además, se emplean relaciones de **<<include>>** y **<<extend>>** para detallar dependencias o extensiones entre los casos de uso.
+El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoIntegrador-POO2-2024/blob/main/Imagenes/Tienda%20Ecol%C3%B3gica%20-%20DCU%20.jpg) representa un **Sistema** que interactúa con dos tipos de actores principales: **Cliente** y **Administrador**. Cada actor tiene acceso a diferentes funcionalidades, organizadas en un total de 21 casos de uso. Además, se emplean relaciones de <*include*> y <*extend*> para detallar dependencias o extensiones entre los casos de uso.
 
 ---
 
 ## Actores
 
 1. **Cliente**:
-   - Usuario que accede al sistema para realizar compras, buscar productos, organizar pedidos y gestionar pagos.
+   - Usuario que accede al sistema para realizar compras, buscar productos, organizar pedidos y realizar pagos.
 
 2. **Administrador**:
    - Encargado de gestionar el catálogo de productos, crear paquetes, asignar descuentos y monitorear el stock.
@@ -21,7 +21,7 @@ El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoInteg
    - Permite al cliente navegar por la lista completa de productos disponibles en el sistema.
 
 2. **Buscar Producto**:
-   - Proporciona una herramienta para localizar productos específicos en el catálogo.
+   - Proporciona una herramienta para realizar la busqueda de productos específicos.
 
 3. **Filtrar Búsqueda**:
    - Extiende "Buscar Producto". Ofrece funcionalidades avanzadas para refinar resultados de búsqueda.
@@ -35,9 +35,9 @@ El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoInteg
 6. **Pagar Producto**:
    - Representa el proceso de completar el pago de un producto seleccionado.
 
-   - **Pagos específicos (<<include>>)**:
+   - **Pagos específicos (<*include*>)**:
      - **Pagar con Transferencia**: Permite realizar el pago mediante transferencia bancaria.
-     - **Pagar con MercadoPago**: Opción para usar esta plataforma de pago.
+     - **Pagar con MercadoPago**: Opción para usar la plataforma de Mercado Pago como un medio de pago.
      - **Pagar con Tarjeta**: Habilita el uso de tarjetas de crédito/débito.
 
 7. **Organizar Compras**:
@@ -81,11 +81,11 @@ El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoInteg
 
 ## Relaciones entre los Casos de Uso
 
-- **<<include>>**:
+- **<*include*>**:
    - Representa la obligatoriedad de un caso de uso dentro de otro.
    - Ejemplo: "Pagar Producto" incluye métodos específicos de pago como "Pagar con Tarjeta".
 
-- **<<extend>>**:
+- **<*extend*>**:
    - Representa casos opcionales o variantes de un caso base.
    - Ejemplo: "Filtrar por Categoría" extiende "Filtrar Búsqueda" añadiendo una opción más específica.
 
