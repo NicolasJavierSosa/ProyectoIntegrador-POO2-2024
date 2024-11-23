@@ -146,7 +146,7 @@ Con una plataforma de ventas en línea bien estructurada y eficiente, la empresa
     - ***Prioridad:*** Alta
     - ***Críterios de aceptación:*** 
         - La información de pago debe procesarse en un entorno seguro sin almacenar datos sensibles en el sistema.
-        - La autenticación en dos pasos debe estar disponible para una capa adicional de seguridad.
+        - La confirmación en dos pasos debe estar disponible para una capa adicional de seguridad.
     - ***Impacto:*** Aumenta la confianza y seguridad del usuario al realizar pagos, al mismo tiempo que mejora la accesibilidad mediante opciones de pago diversificadas y seguras.
 
 ## Arquitectura de software
