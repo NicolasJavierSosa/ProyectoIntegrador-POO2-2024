@@ -26,6 +26,75 @@ Para el diseño de este diagrama de clases utilizamos como base 3 patrones de di
 # Wireframe y caso de uso
 un boceto simple (o algunos) de cómo se verá la interfaz de usuario, acompañado de casos de uso para describir cómo interactúa el usuario con la aplicación. Similar al UML, pueden usar un software para generar el wireframe.
 
+# Descripción del Diagrama de Casos de Uso
+
+El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoIntegrador-POO2-2024/blob/main/Imagenes/Tienda%20Ecol%C3%B3gica%20-%20DCU%20.jpg) representa un **Sistema** que interactúa con dos tipos de actores principales: **Cliente** y **Administrador**. Cada actor tiene acceso a diferentes funcionalidades, organizadas en un total de 17 casos de uso. Además, se emplean relaciones de <*include*> y <*extend*> para detallar dependencias o extensiones entre los casos de uso.
+
+**Actores:**
+
+1. **Cliente**:
+   - Usuario que accede al sistema para realizar compras, buscar productos, organizar pedidos y realizar pagos.
+
+2. **Administrador**:
+   - Encargado de gestionar el catálogo de productos, crear paquetes, asignar descuentos y monitorear el stock.
+
+**Casos de Uso del Cliente:**
+
+1. **Visualizar Catálogo**:
+   - Permite al cliente navegar por la lista completa de productos disponibles en el sistema.
+
+2. **Buscar Producto**:
+   - Proporciona una herramienta para realizar la busqueda de productos específicos.
+
+4. **Filtrar Búsqueda**:
+   - Extiende "Buscar Producto". Ofrece funcionalidades avanzadas para refinar resultados de búsqueda.
+
+    - **Filtros específicos (<*Extends*>)**:
+        - **Filtrar por Categoría**: Permite clasificar los productos según categorías específicas.
+        - **Filtrar por Criterios**: Ofrece opciones adicionales como rango de precio, marca u otros atributos 
+    relevantes.
+    
+5. **Pagar Producto**:
+   - Representa el proceso de completar el pago de un producto seleccionado.
+
+   - **Pagos específicos (<*Extends*>)**:
+     - **Pagar con Transferencia**: Permite realizar el pago mediante transferencia bancaria.
+     - **Pagar con MercadoPago**: Opción para usar la plataforma de Mercado Pago como un medio de pago.
+     - **Pagar con Tarjeta**: Habilita el uso de tarjetas de crédito/débito.
+
+6. **Organizar Compras**:
+   - Ayuda al cliente a planificar y gestionar sus compras.
+
+7. **Consultar Pedido**:
+   - Permite al cliente verificar el estado de sus pedidos previos.
+
+**Casos de Uso del Administrador:**
+
+1. **Agregar Productos**:
+   - Permite introducir nuevos productos en el catálogo del sistema.
+
+2. **Agregar Paquetes**:
+   - Habilita la creación de paquetes de productos (por ejemplo, combos o promociones).
+
+3. **Automatizar Descuentos**:
+   - Relacionado con la automatización de descuentos promocionales, incluyendo criterios predefinidos.
+
+   - **Descuentos Especificos (<*Extend*>)**:
+       - **Designar por Intervalos de Tiempo**: Permite establecer vigencia de los descuentos en 
+     función del tiempo.
+       - **Designar por Cantidad**: Los descuentos pueden configurarse según límites de cantidad.
+
+4. **Designar Productos**:
+   - Permite seleccionar o asociar productos específicos a la creacion de descuentos especificos.
+
+5. **Modificar Productos**:
+   - Habilita la edición de las propiedades de productos existentes.
+
+6. **Modificar Paquetes**:
+   - Permite realizar ajustes en los paquetes existentes.
+
+7. **Alertar Stock**:
+   - Función que notifica al administrador cuando el inventario de productos alcanza niveles bajos.
 
 # Backlog de iteraciones
 
