@@ -139,10 +139,11 @@ El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoInteg
    
     2- El sistema solicita los datos de la tarjeta.
 
-    3- El sistema valida la transacción y confirma el pago.
+    3- El sistema valida la transacción 
    
     4- Si los datos no coinciden se informa al usuario cual es el error y se vuelve al paso 2
-   
+
+    5- El sistema confirma el pago 
   
    
 **Caso 2:** Filtrar Busqueda
