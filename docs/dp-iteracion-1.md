@@ -28,7 +28,7 @@ un boceto simple (o algunos) de cómo se verá la interfaz de usuario, acompaña
 
 # Descripción del Diagrama de Casos de Uso
 
-El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoIntegrador-POO2-2024/blob/main/Imagenes/Tienda%20Ecol%C3%B3gica%20-%20DCU%20.jpg) representa un **Sistema** que interactúa con dos tipos de actores principales: **Cliente** y **Administrador**. Cada actor tiene acceso a diferentes funcionalidades, organizadas en un total de 17 casos de uso. Además, se emplean relaciones de <*include*> y <*extend*> para detallar dependencias o extensiones entre los casos de uso.
+El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoIntegrador-POO2-2024/blob/main/Imagenes/Tienda%20Ecol%C3%B3gica%20-%20DCU%20.jpg) representa un **Sistema** que interactúa con dos tipos de actores principales: **Cliente** y **Administrador**. Cada actor tiene acceso a diferentes funcionalidades, organizadas en casos de uso. Además, se emplean relaciones de <*include*> y <*extend*> para detallar dependencias o extensiones entre los casos de uso.
 
 **Actores:**
 
@@ -86,15 +86,132 @@ El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoInteg
 
 4. **Designar Productos**:
    - Permite seleccionar o asociar productos específicos a la creacion de descuentos especificos.
+     
+5. **Designar Paquetes**:
+   - Permite seleccionar o asociar paquetes específicos a la creacion de descuentos especificos.
 
-5. **Modificar Productos**:
+6. **Modificar Productos**:
    - Habilita la edición de las propiedades de productos existentes.
 
-6. **Modificar Paquetes**:
+7. **Modificar Paquetes**:
    - Permite realizar ajustes en los paquetes existentes.
 
-7. **Alertar Stock**:
+8. **Alertar Stock**:
    - Función que notifica al administrador cuando el inventario de productos alcanza niveles bajos.
+     
+# Casos de Uso Extendidos  
+
+**Caso 1:** Pagar Producto
+
+**Actor Primario:** Cliente
+
+**Propósito:** Permitir al cliente completar el proceso de compra de un producto.
+
+**Flujo Principal**
+1. El cliente selecciona un producto en el carrito de compras.
+2. El sistema solicita que el cliente elija un método de pago.
+3. El cliente selecciona un método (Transferencia, MercadoPago o Tarjeta).
+4. El sistema procesa el pago utilizando el método seleccionado.
+5. Se confirma la transacción y se registra el pedido en el sistema.
+
+**Flujos Alternativos** (<*Extend*>)
+1. **Pagar con Transferencia**
+   
+    1- El cliente selecciona "Transferencia Bancaria" como método de pago.
+   
+    2- El sistema muestra los datos bancarios necesarios para realizar la operación.
+   
+    3- El cliente confirma haber realizado la transferencia y adjunta comprobantes si es requerido.
+
+3. **Pagar con MercadoPago**
+   
+    1- El cliente selecciona "MercadoPago".
+   
+    2- El sistema redirige al cliente al sitio de MercadoPago para completar el pago.
+   
+    3- Una vez confirmado el pago, el sistema regresa al flujo principal.
+   
+5. **Pagar con Tarjeta**
+   
+    1- El cliente selecciona "Tarjeta de Crédito/Débito".
+   
+    2- El sistema solicita los datos de la tarjeta.
+   
+    3- El sistema valida la transacción y confirma el pago.
+   
+**Caso 2:** Filtrar Busqueda
+
+**Actor Primario:** Cliente
+
+**Propósito:** Ayudar al cliente a encontrar productos específicos mediante filtros avanzados.
+
+**Flujo Principal**
+1. El cliente accede a la funcionalidad de búsqueda.
+2. Introduce un término (por ejemplo, "teclado").
+3. El sistema devuelve resultados relacionados.
+4. El usuario selecciona los filtros sobre esa busqueda
+   
+**Flujos Alternativos** 
+
+**Filtrar por Categoría**
+
+1- El cliente selecciona una categoría específica (por ejemplo, "Periféricos").
+
+2- El sistema actualiza la búsqueda mostrando únicamente productos de la categoría seleccionada.
+
+**Filtrar por Criterios**
+
+1- El cliente selecciona filtros avanzados como rango de precio, marca o stock.
+
+2- El sistema actualiza los resultados con base en los criterios definidos.
+
+**Caso 3:** Agregar Productos
+
+**Actor Primario**: Administrador
+
+**Propósito:** Permitir al administrador introducir nuevos productos al catálogo del sistema.
+
+**Flujo Principal**
+
+1. El administrador accede a la funcionalidad de agregar productos.
+2. Ingresa los detalles del producto como nombre, precio, descripción y categoría.
+4. El sistema valida la información.
+5. El producto se registra y se agrega al catálogo.
+
+**Flujo Alternativo** 
+
+1- El administrador comete un fallo en la carga de datos del producto 
+
+2- El sistema notifica este fallo al administrador.
+
+3- Se retorna al paso 2 del flujo principal.
+
+**Caso 4:** Automatizar Descuentos
+
+**Actor Primario:** Administrador
+
+**Propósito:** Implementar descuentos automáticos según criterios predefinidos.
+
+**Flujo Principal**
+
+1. El administrador accede a la funcionalidad de descuentos.
+2. Configura los criterios para el descuento.
+3. El sistema valida los parámetros ingresados.
+4. Los descuentos se activan automáticamente en el sistema.
+
+**Flujos Alternativos** (<*Extend*>)
+
+**Designar por Intervalos de Tiempo**
+
+1- El administrador configura un rango de fechas para la vigencia del descuento.
+
+2- El sistema activa y desactiva los descuentos según las fechas definidas.
+
+**Designar por Cantidad**
+
+1- El administrador especifica que el descuento se aplicará solo si el cliente compra una cantidad mínima de productos.
+
+2- El sistema valida la cantidad durante el proceso de compra y aplica el descuento si se cumple la condición.
 
 # Backlog de iteraciones
 
