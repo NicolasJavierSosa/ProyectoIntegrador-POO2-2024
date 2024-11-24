@@ -220,6 +220,157 @@ El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoInteg
 
 2- El sistema valida la cantidad durante el proceso de compra y aplica el descuento si se cumple la condición.
 
+**Caso 5:** Agregar Producto
+
+**Actor Primario:** Administrador
+
+**Propósito:** Implementar nuevos productos al sistema.
+
+**Flujo Principal**
+
+1. Este caso de uso inicia cuando el administrador quiere agregar un nuevo producto a su catalogo.
+2. El sistema le solicita el ingreso de los datos del producto.
+3. El administrador carga los datos del producto.
+4. El sistema valida que los datos ingresados sean validos
+5. Se registra el producto en la base de datos
+
+**Flujos Alternativos**
+4. En caso de que los datos ingresados no sean validos el sistema informa que los datos no son validos y vuelve al paso 2.
+
+**Caso 6:** Agregar Paquetes
+
+**Actor Primario:** Administrador
+
+**Propósito:** Implementar un paquete al sistema.
+
+**Flujo Principal**
+
+1. Este caso de uso inicia cuando el Administrador desea registrar un nuevo paquete
+2. El sistema solicita un nombre para el paquete y los productos que desee agregar
+3. El Administrador selecciona los productos para el paquete y sus cantidades
+4. El sistema verifica que los datos ingresados sean correctos
+5. El sistema registra el nuevo paquete en el sistema
+
+**Flujos Alternativos**
+4. En caso de que los datos ingresados no sean validos el sistema informa que los datos no son validos y vuelve al paso 2.
+
+**Caso 7:** Consultar pedido
+
+**Actor Primario:** Cliente
+
+**Propósito:** Que el cliente pueda consultar el estado de su pedido
+
+**Flujo Principal**
+
+1. Este caso de uso inicia cuando un Cliente necesita consultar el estado de su pedido
+2. El Usuario logeado selecciona su pedido
+3. El sistema visualiza el estado de su pedido
+
+**Flujos Alternativos**
+1.
+
+**Caso 8:** Modificar Producto
+
+**Actor Primario:** Administrador
+
+**Propósito:** Que el Administrador pueda modificar un producto
+
+**Flujo Principal**
+
+1. Este caso de uso inicia cuando el Administrador necesita modificar un producto
+2. El Administrador selecciona el producto que quiere modificar
+3. El sistema solicita al Administrador que cargue los datos que quiera modificar del producto que estaban previamente en el sistema.
+4. El administrador modifica los datos que desee
+5. El sistema verifica que eso datos ingresador sean validos
+6. El sistema modifica el producto del sistema
+
+**Flujos Alternativos**
+5. En caso de que los datos ingresados no sean validos el sistema informa que los datos no son validos y vuelve al paso 3.
+
+**Caso 9:** Modificar Paquete
+
+**Actor Primario:** Administrador
+
+**Propósito:** Que el Administrador pueda modificar un paquete
+
+**Flujo Principal**
+
+1. Este caso de uso inicia cuando el Administrador necesita modificar un paquete
+2. El Administrador selecciona el paquete que quiere modificar
+3. El sistema solicita al Administrador que seleccione los datos que quiera modificar del paquete que estaban previamente en el sistema.
+4. El administrador modifica los productos o datos del paquete
+5. El sistema verifica que eso datos ingresador sean validos
+6. El sistema modifica el producto del sistema
+
+**Flujos Alternativos**
+5. En caso de que los datos ingresados no sean validos el sistema informa que los datos no son validos y vuelve al paso 3.
+
+**Caso 10:** Organizar compras
+
+**Actor Primario:** Cliente
+
+**Propósito:** Que el Cliente pueda organizar sus compras guardandolas en un carrito
+
+**Flujo Principal**
+
+1. Este caso de uso inicia cuando el Cliente selecciona un producto del sistema para comprarlo
+2. El sistema informa que tiene la opción de seguir comprando
+3. El Cliente selecciona todos los productos que desee agregar al carrito
+4. El sistema agrega al carrito todos los productos seleccionados
+5. Una vez finalizado la carga de productos en el carrito, el Cliente compra todo lo que estaba cargado en el carrito
+
+
+**Flujos Alternativos**
+5. En caso de que el Cliente no efectue la compra, se descartan los productos cargados en el carrito y termina el caso de uso.
+
+**Caso 11:** Alertar Stock
+
+**Actor Primario:** Administrador
+
+**Propósito:** Designa un mínimo para cada producto, si baja de ese mínimo lo informa
+
+**Flujo Principal**
+
+1. Este caso de uso inicia cuando el Administrador desea designar el mínimo de un producto
+2. El sistema solicita que seleccione el producto que desea designar un mínimo
+3. El administrador selecciona el producto e ingresa el mínimo de stock aceptable
+4. El sistema registra el mínimo de stock para ese producto en el sistema
+
+**Flujos Alternativos**
+4. El sistema informa que el dato ingresado no es valido. Vuelve al paso 2.
+
+**Caso 12:** Designar paquetes
+
+**Actor Primario:** Administrador
+
+**Propósito:** Designa un descuento a un paquete
+
+**Flujo Principal**
+
+1. Este caso de uso inicia cuando el Administrador desea asignar un descuento a un paquete registrado en el sistema
+2. El sistema solicita que seleccione el paquete que desea asignar el descuento
+3. El administrador selecciona el paquete y el porcentaje de descuento
+4. El sistema registra el descuento para ese paquete seleccionado
+
+**Flujos Alternativos**
+.
+
+**Caso 13:** Designar producto
+
+**Actor Primario:** Administrador
+
+**Propósito:** Designa un descuento a un producto
+
+**Flujo Principal**
+
+1. Este caso de uso inicia cuando el Administrador desea asignar un descuento a un producto registrado en el sistema
+2. El sistema solicita que seleccione el producto que desea asignar el descuento
+3. El administrador selecciona el producto y el porcentaje de descuento
+4. El sistema registra el descuento para ese paquete seleccionado
+
+**Flujos Alternativos**
+.
+
 # Backlog de iteraciones
 
 ### Historia de usuario que completaremos en esta primer iteración:
