@@ -123,6 +123,8 @@ El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoInteg
    
     3- El cliente confirma haber realizado la transferencia y adjunta comprobantes si es requerido.
 
+    4- Si la transferencia falla se termina el caso de uso 
+
 3. **Pagar con MercadoPago**
    
     1- El cliente selecciona "MercadoPago".
@@ -136,8 +138,10 @@ El [Diagrama de Casos de Uso](https://github.com/NicolasJavierSosa/ProyectoInteg
     1- El cliente selecciona "Tarjeta de Crédito/Débito".
    
     2- El sistema solicita los datos de la tarjeta.
+
+    3- Si los datos no coinciden se informa al usuario cual es el error y se vuelve al paso 2
    
-    3- El sistema valida la transacción y confirma el pago.
+    4- El sistema valida la transacción y confirma el pago.
    
 **Caso 2:** Filtrar Busqueda
 
