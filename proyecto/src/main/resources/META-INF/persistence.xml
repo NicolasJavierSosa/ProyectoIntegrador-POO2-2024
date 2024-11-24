@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+version="2.1" >
+    <persistence-unit name="PROYECTO" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+        <class>modelo.Categoria</class>
+        <class>modelo.ComponenteProducto</class>
+        <class>modelo.DescuentoDecorator</class>
+        <class>modelo.DescuentoTemporada</class>
+        <class>modelo.DescuentoVolumen</class>
+        <class>modelo.DetallePedido</class>
+        <class>modelo.Envio</class>
+        <class>modelo.EnvioLocal</class>
+        <class>modelo.EnvioNacional</class>
+        <class>modelo.EnvioProvincial</class>
+        <class>modelo.EstadoPedido</class>
+        <class>modelo.Inventario</class>
+        <class>modelo.MercadoPago</class>
+        <class>modelo.Pago</class>
+        <class>modelo.Paquete</class>
+        <class>modelo.Pedido</class>
+        <class>modelo.PedidoBase</class>
+        <class>modelo.PrecioFinal</class>
+        <class>modelo.Producto</class>
+        <class>modelo.Tarjeta</class>
+        <class>modelo.TipoUsuario</class>
+        <class>modelo.TransferenciaBancaria</class>
+        <class>modelo.Usuario</class>
+        
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/TiendaEcológica"/>
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="jakarta.persistence.jdbc.user" value="postgres" />
+            <property name="jakarta.persistence.jdbc.password" value="postgres"/>
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+        </properties>
+    </persistence-unit>
+</persistence>
