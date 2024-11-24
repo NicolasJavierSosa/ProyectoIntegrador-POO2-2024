@@ -81,28 +81,31 @@ footer {
     padding: 20px;
     text-align: center; /* Centra el contenido horizontalmente */
     margin-top: 30px !important;
+    width: 100%;
   }
   
-  footer h5 {
-      margin-bottom: 10px; /* Espacio entre el título y el contenido */
-      color: #fff;
-  }
+footer h5 {
+    margin-bottom: 10px; /* Espacio entre el título y el contenido */
+    color: #fff;
+}
   
-  footer p {
-      margin-bottom: 5px; /* Espacio entre párrafos */
-      color: #eee; /* Color del texto ligeramente más claro */
-  }
-  
-  footer a {
-      color: #fff; /* Color de los enlaces */
-      text-decoration: none; /* Quita el subrayado */
-      margin: 0 10px; /* Espacio entre iconos */
-  }
-  
-  footer i { /* Estilos para los iconos de redes sociales */
-      margin-right: 5px;
-  }
-  
+footer p {
+    margin-bottom: 5px; /* Espacio entre párrafos */
+    color: #eee; /* Color del texto ligeramente más claro */
+}
+
+footer a {
+  color: #4CAF50;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer i { /* Estilos para los iconos de redes sociales */
+    margin-right: 5px;
+}
+footer a:hover {
+  text-decoration: underline;
+}
   
 
 body {
@@ -523,6 +526,101 @@ footer a:hover {
 
 /* Orden*/
 
-.TitulosOrden{
-  
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.form-section {
+   width: 48%;
+   background: #fff;
+   padding: 20px;
+   border-radius: 5px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.botonesOrden {
+  margin-top: 50px;
+   /* Mayor separación de las opciones de pago */
+  display: flex;
+  flex-direction: column;
+   /* Alineación vertical de botones */
+  gap: 15px;
+   /* Espaciado entre los botones */
+  align-items: center;
+   /* Centra los botones en el contenedor */
+}
+.btn-realizar-pedido,
+.btn-cancelar {
+    width: 100%;
+    /* Botón ocupa todo el ancho disponible */
+    max-width: 300px;
+    /* Tamaño máximo del botón */
+    padding: 15px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.btn-realizar-pedido {
+  background-color: #4CAF50;
+  /* Naranja */
+  color: white;
+}
+
+.btn-realizar-pedido:hover {
+  background-color: #317933;
+  /* Oscurece el color al pasar el mouse */
+}
+
+.btn-cancelar {
+  background-color: #f44336;
+  /* Rojo */
+  color: white;
+}
+
+.btn-cancelar:hover {
+  background-color: #d32f2f;
+  /* Oscurece el rojo al pasar el mouse */
+}
+
+.metodos-pago label {
+  display: flex;
+  align-items: center;
+  /* Asegura que las opciones y el texto estén alineados */
+  gap: 8px;
+  /* Menor espacio entre el círculo y el texto */
+  margin-bottom: 2%;
+  /* Reduce el espacio entre las opciones */
+}
+.payment-option {
+  margin-top: 5px;
+  /*margin-bottom: 5px;*/
+  /* Ajusta el espaciado entre las opciones de pago y otros elementos */
+}
+.cart-totals p {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.order-details,
+.cart-totals {
+    width: 48%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.order-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 20px;
+}
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
