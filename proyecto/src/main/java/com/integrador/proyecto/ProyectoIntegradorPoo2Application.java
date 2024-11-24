@@ -28,6 +28,7 @@ public class ProyectoIntegradorPoo2Application {
      * @param args Argumentos de línea de comandos para personalizar el arranque
      * de la aplicación
      */
+    
     public static void main(String[] args) {
         SpringApplication.run(ProyectoIntegradorPoo2Application.class, args);
     }
