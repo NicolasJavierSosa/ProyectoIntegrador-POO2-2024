@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+  <!-- Stylesheet CSS (Thymeleaf syntax) -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Categorías</a></li>
+          <li class="nav-item"><a class="nav-link" href="producto.html">Producto</a></li>
+          <li class="nav-item"><a class="nav-link" href="sesion">sesión</a></li>
+        </ul>
+        <a class="btn btn-outline-success" href="#" role="button">Iniciar sesión</a>
+        <a class="btn btn-outline-success" href="#" role="button">Registrarse</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="row mt-3">
+      <div class="col-md-8">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Búsqueda">
+          <button class="btn btn-outline-secondary" type="button">Buscar</button>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex justify-content-end">
+        <button class="btn" style="background-color: #f5f5dc00; color: #000; border: none; justify-content: end;">
+          <img src="/img/images-removebg-preview.png" alt="Imagen"
+            style="width: 50px; height: 50px; margin-left: 5px;">
+        </button>
+      </div>
+    </div>
+
+    <h1 style="text-align: center; font-family: Arial, sans-serif; font-size: 2.5rem; color: #333; margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);">
+      Últimos Agregados
+    </h1>
+    <div id="carouselExampleRide" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Primer grupo de productos -->
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="productoo text-center">
+                <img src="imagen1.jpg" alt="Botella de Agua Reutilizable" class="img-fluid">
+                <h3>Botella de Agua Reutilizable</h3>
+                <p>Precio: $15.99</p>
+                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="productoo text-center">
+                <img src="imagen2.jpg" alt="Bolsa Ecológica" class="img-fluid">
+                <h3>Bolsa Ecológica</h3>
+                <p>Precio: $9.99</p>
+                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="productoo text-center">
+                <img src="imagen3.jpg" alt="Vaso de Café Reutilizable" class="img-fluid">
+                <h3>Vaso de Café Reutilizable</h3>
+                <p>Precio: $12.50</p>
+                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Segundo grupo de productos -->
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="productoo text-center">
+                <img src="imagen4.jpg" alt="Cepillo de Bambú" class="img-fluid">
+                <h3>Cepillo de Bambú</h3>
+                <p>Precio: $4.99</p>
+                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="productoo text-center">
+                <img src="imagen5.jpg" alt="Jabón Ecológico" class="img-fluid">
+                <h3>Jabón Ecológico</h3>
+                <p>Precio: $6.50</p>
+                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="productoo text-center">
+                <img src="imagen6.jpg" alt="Cuchara Reutilizable" class="img-fluid">
+                <h3>Cuchara Reutilizable</h3>
+                <p>Precio: $3.99</p>
+                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Controles del carrusel -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev" style="background-color: rgb(71, 151, 71); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; position: absolute; top: 50%; transform: translateY(-50%); left: -60px; z-index: 1;">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next" style="background-color: rgb(71, 151, 71); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; position: absolute; top: 50%; transform: translateY(-50%); right: -60px; z-index: 1;">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+
+
+    <div class="personal">
+      <div class="row">
+        <div class="col-md-4" style="padding: 0% 0 0 0;">
+          <div class="card">
+            <figure>
+              <img src="./imagenes/fernando.png">
+            </figure>
+            <h3>
+              Juegos y juguetes
+            </h3>
+          </div>
+        </div>
+        <div class="col-md-4" style="padding: 0% 0 0 0;">
+          <div class="card">
+            <figure>
+              <img src="./imagenes/yohana.png">
+            </figure>
+            <h3>
+              Bolsas
+            </h3>
+
+          </div>
+        </div>
+        <div class="col-md-4" style="padding: 0% 0 0 0;">
+          <div class="card">
+            <figure>
+              <img src="./imagenes/Nicolas.png" alt="">
+            </figure>
+            <h3>
+              Baño
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="personal">
+      <div class="row">
+        <div class="col-md-4" style="padding: 0% 0 0 0;">
+          <div class="card">
+            <figure>
+              <img src="./imagenes/fernando.png">
+            </figure>
+            <h3>
+              Juegos y juguetes
+            </h3>
+          </div>
+        </div>
+        <div class="col-md-4" style="padding: 0% 0 0 0;">
+          <div class="card">
+            <figure>
+              <img src="./imagenes/yohana.png">
+            </figure>
+            <h3>
+              Bolsas
+            </h3>
+
+          </div>
+        </div>
+        <div class="col-md-4" style="padding: 0% 0 0 0;">
+          <div class="card">
+            <figure>
+              <img src="./imagenes/Nicolas.png" alt="">
+            </figure>
+            <h3>
+              Baño
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+</body>
+
+
+
+
+<footer class="bg-dark text-light py-3 mt-auto"> <!-- mt-auto lo pone al final -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Información de Contacto</h5>
+        <p>Dirección: Tu Dirección</p>
+        <p>Teléfono: Tu Teléfono</p>
+        <p>Email: Tu Email</p>
+      </div>
+      <div class="col-md-6">
+        <h5>Redes Sociales</h5>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#" class="text-light"><i class="fab fa-facebook-f"></i> Facebook</a>
+          </li>
+          <li class="list-inline-item"><a href="#" class="text-light"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li class="list-inline-item"><a href="#" class="text-light"><i class="fab fa-instagram"></i> Instagram</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</html>
