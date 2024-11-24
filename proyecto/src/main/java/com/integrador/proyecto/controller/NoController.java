@@ -16,5 +16,10 @@ public class NoController {
     public String mostrarSesion() {
         return "sesion";  // Retorna el archivo sesion.html
     }
+
+    @GetMapping("/catalogo")
+    public String mostrarcatalogo() {
+        return "catalogo";  // Retorna el archivo sesion.html
+    }
     
 }

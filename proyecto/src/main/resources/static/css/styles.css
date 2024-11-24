@@ -8,6 +8,15 @@
     transition: all 300ms ease;
 }
 
+.NombreCat {
+  text-align: center; /* Centra el texto horizontalmente */
+  font-family: 'Montserrat', sans-serif; /* Aplica la fuente Montserrat */
+  font-weight: 700; /* Aplica el peso de negrita */
+  font-size: 35px; /* Ajusta el tamaño del texto según prefieras */
+  color: #333; /* Cambia el color según tus preferencias */
+  margin: 5px, 0px; /* Ajusta el espacio alrededor del título */
+}
+
 .productoo {
   background-color: white;
   border: 1px solid #ddd;

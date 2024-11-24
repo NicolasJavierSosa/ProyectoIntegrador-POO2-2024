@@ -28,7 +28,7 @@
       <div class="container-fluid">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link active" aria-current="page" href="index">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="catalogo">Catálogo</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Categorías</a></li>
           <li class="nav-item"><a class="nav-link" href="producto.html">Producto</a></li>
           <li class="nav-item"><a class="nav-link" href="sesion">sesión</a></li>
@@ -43,8 +43,10 @@
     <div class="row mt-3">
       <div class="col-md-8">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Búsqueda">
-          <button class="btn btn-outline-secondary" type="button">Buscar</button>
+          <form action="/buscar" method="get" class="input-group mb-3">
+          <input type="text" class="form-control" name="query" placeholder="Búsqueda">
+          <button class="btn btn-outline-secondary" type="submit" >Buscar</button>
+          </form>
         </div>
       </div>
       <div class="col-md-4 d-flex justify-content-end">
@@ -140,7 +142,7 @@
             <figure>
               <img src="/img/ModaEcologica.jpg">
             </figure>
-            <h3>
+            <h3 class="NombreCat">
                 Moda ecológica
             </h3>
           </div>
@@ -150,7 +152,7 @@
             <figure>
               <img src="./img/Decoraciones.jpg">
             </figure>
-            <h3>
+            <h3 class="NombreCat">
               Decoraciones
             </h3>
 
@@ -161,7 +163,7 @@
             <figure>
               <img src="./img/Muebleria.jpg" alt="">
             </figure>
-            <h3>
+            <h3 class="NombreCat">
               Muebleria
             </h3>
           </div>
@@ -175,7 +177,7 @@
             <figure>
               <img src="./img/Empaques.jpg">
             </figure>
-            <h3>
+            <h3 class="NombreCat">
               Empaques
             </h3>
           </div>
@@ -185,7 +187,7 @@
             <figure>
               <img src="./img/HigienePersonal.jpg">
             </figure>
-            <h3>
+            <h3 class="NombreCat">
               Higiene
             </h3>
 
@@ -196,7 +198,7 @@
             <figure>
               <img src="./img/Juguetes.jpg" alt="">
             </figure>
-            <h3>
+            <h3 class="NombreCat">
               Juguetes
             </h3>
           </div>
