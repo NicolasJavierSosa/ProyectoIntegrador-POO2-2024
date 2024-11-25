@@ -1,33 +1,34 @@
-## Iteraación 1 - Restrospectiva 
--- Propusimos diagramas concretos para las clases a implementar y sus funcionalidades.  
+## Iteración 1 - Retrospectiva
 
--- En esta primera iteración se logro una correcta implementación y conexion con la base de datos a través de una persistencia.
+- Se propusieron diagramas detallados para las clases a implementar y sus respectivas funcionalidades.
+  
+- En esta primera iteración, se logró una correcta implementación y conexión con la base de datos a través de un sistema de persistencia.
 
--- Se logro un adecuado diseño de las pantallas para el pleno uso del proyecto integrador.
+- Se diseñaron adecuadamente las pantallas, optimizando su uso para el proyecto integrador.
 
--- Se creo un codigo adecuado para cada una de las clases propuestas en el diagrama de clases. 
+- Se generó un código apropiado para cada una de las clases definidas en el diagrama de clases.
 
--- Se implementaron algunas pantallas con las funcionalidades propuesta en los casos de uso. 
+- Se implementaron diversas pantallas con las funcionalidades propuestas en los casos de uso.
 
--- Se dispone de una documentación completa del código para su posterior revision. 
+- Se dispone de una documentación completa del código para su posterior revisión.
 
-## Dificultades 
+## Dificultades
 
--- La evalución de las funcionalidades adecuadas y que actor haria dicha función fue un punto de conflicto entre los integrantes. 
+- Hubo dificultades para determinar qué funcionalidades serían las más adecuadas y qué actor debía ejecutar cada una de ellas, lo que generó discrepancias entre los miembros del equipo.
 
--- La correcta implementacion de la base de datos con el programa llevo a demoras innecesarias. 
+- La integración de la base de datos con el sistema presentó complicaciones, lo que resultó en demoras innecesarias.
 
--- Aplicar las funcionalidades a las pantallas diseñadas previamente nos resulto laborioso. 
+- La implementación de las funcionalidades en las pantallas previamente diseñadas resultó más laboriosa de lo anticipado.
 
-## Desarrollo realizado Paso a Paso
+## Desarrollo Realizado Paso a Paso
 
-1. Hubo una reunion inicial para el desarrollo de la funcionalidades que debe emplear el sistema y que roles van a interactuar con el mismo.
-2. En la segunda reunion nos repartimos las actividades que cada integrante debe realizar, diviendo el grupo en parejas de a dos para que lleven a cabo cada parte del desarrollo del sistema.
-3. Cada una de las parejas llevo a cabo sus operaciones de una forma independiente.
-4. Una vez terminadas cada una de las operaciones asignadas a las parejas, se lleva a cabo una puesta en común para continuar con el desarrollo del sistema de una forma integral.
-5. Se realizan las pruebas de la funcionalidad de cada pantalla para corroborar su correcto funcionamiento.
+1. Se realizó una reunión inicial para definir las funcionalidades que debía incorporar el sistema y los roles que interactuarían con ellas.
+  
+2. En la segunda reunión, se asignaron las tareas específicas a cada integrante, dividiendo al grupo en parejas para trabajar en distintas secciones del desarrollo.
 
+3. Cada pareja ejecutó sus tareas de manera independiente.
 
+4. Una vez completadas las tareas de cada pareja, se llevó a cabo una puesta en común para integrar las partes del sistema y continuar con el desarrollo de manera cohesionada.
 
-
+5. Se realizaron pruebas para verificar la funcionalidad de cada pantalla, asegurando su correcto funcionamiento.
 
