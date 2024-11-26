@@ -1,18 +1,67 @@
-package com.integrador.proyecto.servicio;
+package modelo;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import java.util.Set;
+import java.util.UUID;
 
-import com.integrador.proyecto.repositorio.CategoriaRepositorio;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Service
-public class CategoriaServicio {
+@Entity
+@Table(name = "categorias")
+@Getter @Setter @NoArgsConstructor
+public class Categoria {
 
-    private CategoriaRepositorio repository;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Setter(AccessLevel.NONE)
+    
+    @Column(name = "id_categoria")
+    private String idCategoria = UUID.randomUUID().toString();
+    @NotBlank
+    @Size(min = 10, max = 20)
+    @Column(nullable = false, length = 20)
+    private String nombre;
+    @NotBlank
+    @Size(min = 25, max = 225)
+    @Column(nullable = false, length = 225)
+    private String descripcion;
 
-    @Autowired
-    CategoriaServicio(CategoriaRepositorio repository){
-        this.repository = repository;
+    @OneToMany(mappedBy = "categoria")
+    private Set<Producto> productos;
+
+    public Categoria(Set<Producto> productos) {
+        this.productos = productos;
+    }
+
+    public String getId() {
+        return idCategoria;
+    }
+
+    public void setId(String idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    public Set<Producto> getProductos() {
+        return productos;
     }
 
 }
