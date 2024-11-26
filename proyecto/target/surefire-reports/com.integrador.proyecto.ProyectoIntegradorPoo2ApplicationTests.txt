@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.integrador.proyecto.ProyectoIntegradorPoo2ApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.89 s -- in com.integrador.proyecto.ProyectoIntegradorPoo2ApplicationTests
