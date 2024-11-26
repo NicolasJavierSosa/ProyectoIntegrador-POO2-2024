@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -22,7 +24,7 @@ public class Producto implements ComponenteProducto{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
-    @Column(updatable = false)
+    @Column(name = "id")
     private String idProducto;
     @NotBlank
     @Size(min = 10, max = 20)
@@ -36,13 +38,23 @@ public class Producto implements ComponenteProducto{
     @NotNull
     private double peso;
 
-
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria", nullable = false)
+    private Categoria categoria;
 
     public Producto(String nombre, String descripcion, double precio, double peso){
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.peso = peso;
+    }
+
+    public String getId() {
+        return idProducto;
+    }
+
+    public void setId(String id) {
+        this.idProducto = idProducto;
     }
 
     @Override
@@ -60,6 +72,13 @@ public class Producto implements ComponenteProducto{
     @Override
     public double aplicarDescuento(double descuento){
         return descuento;
+    }
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
 }
