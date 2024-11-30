@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+</head>
+<style>
+    .carrito-lateral {
+    position: fixed; /* Fija el carrito en un lugar de la página */
+    top: 90%; /*  verticalmente  */
+    right: 10px; /* Sepára un poco del borde derecho */
+    transform: translateY(-50%); /* Centrado vertical */
+    z-index: 1000; /* que esté encima de otros elementos */
+}
+
+.carrito-lateral img {
+    width: 100px; /* Ajusta el tamaño según lo que necesites */
+    height: 100px;
+    cursor: pointer;
+}
+
+</style>
+    <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalogo">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Categorías</a></li>
+
+                </ul>
+                <a class="btn btn-outline-success" href="sesion" role="button">Iniciar sesión</a>
+                <a class="btn btn-outline-success" href="sesion" role="button">Registrarse</a>
+            </div>
+        </nav>
+    </header>
+
+
+
+<main class="container">
+    <div class="row mt-3">
+              </div>
+            <div class="carrito-lateral">
+                <a href="carrito">
+                    <button class="btn" style="background-color: transparent; border: none; justify-content: end;">
+                        <img src="/imagenes/images-removebg-preview.png" alt="Imagen"
+                         style="width: 90px; height: 90px; border-radius: 50%; margin-left: 5px; background-color: #f5f5f5; padding: 5px;">
+                    </button>
+                </a>
+            </div>            
+    </div>
+    <form method="get" action="catalogo">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Buscar productos" name="buscar">
+                    <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                </div>
+            </div>
+            <!-- Filtro de ordenación -->
+            <div class="col-md-4">    
+                <select class="form-select" name="ordenar" onchange="this.form.submit()" style="width: 50%; height: 40px; font-size: 16px;">
+                    <option value="">Ordenar por...</option>
+                    <option value="menor-precio" {{ 'menor-precio' == ordenar ? 'selected' : '' }}>Menor precio</option>
+                    <option value="mayor-precio" {{ 'mayor-precio' == ordenar ? 'selected' : '' }}>Mayor precio</option>
+                </select>
+            </div>
+        </div>
+    </form>
+
+
+
+<div class="main-grid">
+    <div class="catalogo-container">
+        <h1>Catálogo</h1>
+        <!-- Menú de ordenamiento -->
+
+        <!-- Productos -->
+<div class="catalogo">
+    <!-- Iterar sobre productos -->
+    <div class="producto" th:each="producto : ${productos}">
+        <a th:href="@{/productos/producto/{id}(id=${producto.id})}" style="text-decoration: none; color: inherit;">
+            <!--<img th:src="@{'/imagenes/productos/' + ${producto.imagen}}" alt="Producto">-->
+            <h3 th:text="${producto.nombre}">Nombre Producto</h3>
+            <p th:text="'Precio: ' + ${producto.precio}">Precio</p>
+
+        <a href="#" class="boton">Agregar al carrito</a>
+        <a th:href="@{/orden/{id}(id=${producto.id})}" class="boton">Comprar Ahora</a>
+    </a>
+    </div>
+</div>
+
+
+
+            <!-- Producto ejemplo -->
+             <!--
+            <div class="producto">
+                <img src="/imagenes/productos/CepillosBambu.jpg" alt="Producto 1">
+                <h3>Cepillos de Bambú</h3>
+                <p>Precio: $19.99</p>
+                <a href="#" class="boton">Agregar al carrito</a>
+                <a href="orden" class="boton">Comprar Ahora</a>
+            </div>
+            <div class="producto">
+                <img src="/imagenes/productos/cubiertos.jpg" alt="cubiertos ecologicos">
+                <h3>Cubiertos ecológicos de madera</h3>
+                <p>Precio: $15.99</p>
+                <a href="#" class="boton">Agregar al carrito</a>
+                <a href="orden" class="boton">Comprar Ahora</a>
+            </div>
+            <div class="producto">
+                <img src="/imagenes/productos/hisoposBambu.jpg" alt="hisopos">
+                <h3>Hisopos de palitos de Bambú</h3>
+                <p>Precio: $12.99</p>
+                <a href="#" class="boton">Agregar al carrito</a>
+                <a href="orden" class="boton">Comprar Ahora</a>
+            </div>
+            <div class="producto">
+                <img src="/imagenes/productos/JabónArtesanal.jpg" alt="Jabón Ecológico">
+                <h3>Jabón Artesanal</h3>
+                <p>Precio: $6.50</p>
+                <a href="#" class="boton">Agregar al carrito</a>
+                <a href="orden" class="boton">Comprar Ahora</a>
+            </div>
+            <div class="producto">
+                <img src="/imagenes/productos/Lentes.jpg" alt="Lentes con marco de madera">
+                <h3>Lentes con marco de madera</h3>
+                <p>Precio: $10.99</p>
+                <a href="#" class="boton">Agregar al carrito</a>
+                <a href="orden" class="boton">Comprar Ahora</a>
+            </div>
+            <div class="producto">
+                <img src="/imagenes/productos/PastaDental.jpg" alt="Pasta dental organica">
+                <h3>Pasta Dental "Coolpaste"</h3>
+                <p>Precio: $5.99</p>
+                <a href="#" class="boton">Agregar al carrito</a>
+                <a href="orden" class="boton">Comprar Ahora</a>
+            </div>
+            <div class="producto">
+                <img src="/imagenes/productos/decoraciones2.jpg" alt="Cuadro de mariposa">
+                <h3>Cuadro de madera "Mariposa"</h3>
+                <p>Precio: $8.99</p>
+                <a href="#" class="boton">Agregar al carrito</a>
+                <a href="orden" class="boton">Comprar Ahora</a>
+            </div>
+            <div class="producto">
+                <img src="/imagenes/productos/juguete3.jpg" alt="juguete ta-te-ti">
+                <h3>"Ta-Te-Ti" de madera</h3>
+                <p>Precio: $4.50</p>
+                <a href="#" class="boton">Agregar al carrito</a>
+                <a href="orden" class="boton">Comprar Ahora</a>
+            </div>
+            <div class="producto">
+                <img src="/imagenes/productos/moda.jpg" alt="Bolsitas de tela">
+                <h3>Bolsas de tela</h3>
+                <p>Precio: $14.50</p>
+                <a href="#" class="boton">Agregar al carrito</a>
+                <a href="orden" class="boton">Comprar Ahora</a>
+            </div>
+            <div class="producto">
+                <img src="/imagenes/productos/muebleria5.jpg" alt="Mesita de madera">
+                <h3>Mesita de madera</h3>
+                <p>Precio: $45.99</p>
+                <a href="#" class="boton">Agregar al carrito</a>
+                <a href="orden" class="boton">Comprar Ahora</a>
+            </div>
+            <div class="producto">
+                <img src="/imagenes/productos/utilidades4.jpg" alt="Porta vaso">
+                <h3>Porta vaso de madera</h3>
+                <p>Precio: $9.99</p>
+                <a href="#" class="boton">Agregar al carrito</a>
+                <a href="orden" class="boton">Comprar Ahora</a>
+            </div>
+            <div class="producto">
+                <img src="/imagenes/productos/juguete4.jpg" alt="Ajedrez">
+                <h3>Ajedrez de madera</h3>
+                <p>Precio: $7.50</p>
+                <a href="#" class="boton">Agregar al carrito</a>
+                <a href="orden" class="boton">Comprar Ahora</a>
+            </div>
+-------->
+        </div>
+    </div>
+
+    <aside class="categorias">
+        <h3>Categorías</h3>
+        <ul>
+            <li><a href="#">Moda Ecológica</a></li>
+            <li><a href="#">Decoraciones</a></li>
+            <li><a href="#">Muebleria</a></li>
+            <li><a href="#">Empaques</a></li>
+            <li><a href="#">Higiene</a></li>
+            <li><a href="#">Juguetes</a></li>
+        </ul>
+    </aside>
+</div>
+
+<div class="paginacion">
+    <a href="#" class="active">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">Siguiente</a>
+</div>
+</body>
+
+</html>
