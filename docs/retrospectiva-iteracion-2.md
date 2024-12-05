@@ -25,6 +25,7 @@ Las dificultades que enfrentamos durante este proceso fueron las siguientes:
 
 * **Problemas con el diseño e implementación de la base de datos:** Surgieron errores en la implementación de la base de datos en los distintos equipos de trabajo, lo que generó una falta de coordinación en el desarrollo del proyecto. Esto obligó al equipo a rediseñar y reimplementar la base de datos para garantizar su correcto funcionamiento.
 * **Errores en el manejo del repositorio de GitHub:** Se produjeron inconvenientes en la gestión del repositorio, específicamente con la carpeta que contenía el código del proyecto. Un error en la subida de esta carpeta provocó que se volviera inaccesible temporalmente, complicando la colaboración entre los miembros del equipo.
+* **Problemas con la carga horaria del equipo:** La disponibilidad limitada de tiempo por parte de los miembros influyó en el ritmo de avance del proyecto, ralentizando tanto el desarrollo de actividades como la resolución de errores. 
   
 Gracias al esfuerzo y compromiso de todos los integrantes del equipo, logramos resolver estos problemas de manera eficiente, permitiendo que el desarrollo del proyecto continuara sin mayores contratiempos.
 
