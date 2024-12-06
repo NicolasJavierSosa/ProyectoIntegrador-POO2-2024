@@ -29,6 +29,7 @@ Se realizaron una serie de bocetos simples de cómo se vería la interfazpara la
 ***Caso de Uso: Finalizar Compra***
 Actor Primario: Cliente
 Objetivo: El cliente desea completar la compra de un producto específico o de productos seleccionados en el carrito.
+
 Flujo Principal:
 1.	El cliente accede a la pantalla de "Finalizar Compra" desde el carrito de compras.
 2.	El sistema muestra por pantalla los datos no editables del cliente, incluyendo Nombre y Apellido, Email y Teléfono.
@@ -40,6 +41,7 @@ Flujo Principal:
    - Envío Local: Solo el campo de "Dirección" se habilita.
    - Envío Provincial: Los campos de "Dirección" y "Ciudad" se habilitan, mientras que el campo de "Provincia" se deshabilita y limpia.
    - Envío Nacional: Todos los campos (Dirección, Ciudad y Provincia) se habilitan.
+     
 Cualquier selección del método de envío limpia los campos de dirección.
 5.	El cliente debe seleccionar uno de los métodos de pago disponibles:
    - Pago con Mercado Pago
@@ -68,26 +70,27 @@ Postcondiciones:
 ***Caso de Uso: Iniciar Sesión***
 Actor: Cliente
 Objetivo: El cliente desea acceder a su cuenta en la plataforma.
+
 Flujo Principal:
-1.	- El cliente accede a la pantalla de inicio de sesión desde la página principal de la tienda, o bien es redireccionado a esta pantalla si desea realizar una compra sin haber iniciado sesión previamente.
-2.	- El cliente ingresa su dirección de correo electrónico en el campo correspondiente.
-o	El sistema valida que el formato del correo electrónico sea correcto.
-3.	- El cliente ingresa su contraseña en el campo correspondiente.
-  o	El sistema enmascara la contraseña para garantizar la privacidad del cliente.
+1.	El cliente accede a la pantalla de inicio de sesión desde la página principal de la tienda, o bien es redireccionado a esta pantalla si desea realizar una compra sin haber iniciado sesión previamente.
+2.	El cliente ingresa su dirección de correo electrónico en el campo correspondiente.
+   - El sistema valida que el formato del correo electrónico sea correcto.
+3.	El cliente ingresa su contraseña en el campo correspondiente.
+     - El sistema enmascara la contraseña para garantizar la privacidad del cliente.
 4.	El cliente hace clic en el botón "ACCEDER".
 5.	El sistema valida las credenciales del cliente.
- o	Si las credenciales son correctas, el cliente es redirigido a la pantalla de inicio si ha ingresado desde allí, o a la pantalla de orden de compra si fue redireccionado.
-o	Si las credenciales son incorrectas, el sistema muestra un mensaje de error indicando que el correo electrónico o la contraseña son incorrectos.
+    - Si las credenciales son correctas, el cliente es redirigido a la pantalla de inicio si ha ingresado desde allí, o a la pantalla de orden de compra si fue redireccionado.
+    - Si las credenciales son incorrectas, el sistema muestra un mensaje de error indicando que el correo electrónico o la contraseña son incorrectos.
 
 Flujos Alternativos:
-•	F1: Si el formato del correo electrónico ingresado es incorrecto, el sistema muestra un mensaje de error indicando que el formato del correo electrónico no es válido.
-•	F2: Si el cliente ingresa un correo electrónico o contraseña incorrectos, el sistema muestra un mensaje de error indicando que las credenciales son incorrectas. El cliente puede intentar nuevamente ingresando las credenciales correctas.
+- F1: Si el formato del correo electrónico ingresado es incorrecto, el sistema muestra un mensaje de error indicando que el formato del correo electrónico no es válido.
+- F2: Si el cliente ingresa un correo electrónico o contraseña incorrectos, el sistema muestra un mensaje de error indicando que las credenciales son incorrectas. El cliente puede intentar nuevamente ingresando las credenciales correctas.
 
 Precondiciones:
-•	El cliente tiene una cuenta registrada en la plataforma.
+- El cliente tiene una cuenta registrada en la plataforma.
 
 Postcondiciones:
-•	El cliente accede exitosamente a su cuenta y puede pasar a la orden de compra.
+- El cliente accede exitosamente a su cuenta y puede pasar a la orden de compra.
 
 
 ***Caso de Uso: Crear Cuenta*** 
@@ -95,39 +98,39 @@ Actor Primario: Cliente
 Objetivo: El cliente desea crear una cuenta en la tienda para poder realizar compras.
 
 Flujo Principal:
-1.	- El cliente accede a la pantalla de creación de cuenta.
-2.	- El cliente ingresa su nombre en el campo "Nombre" y luego ingresa su apellido en el campo "Apellido".
-3.	- El cliente ingresa su correo electrónico en el campo "Correo".
-o	El sistema valida que el formato del correo electrónico sea correcto.
-4.	- El cliente ingresa un nombre de usuario en el campo "Username" y luego ingresa una contraseña en el campo "Password".
+1.	El cliente accede a la pantalla de creación de cuenta.
+2.	El cliente ingresa su nombre en el campo "Nombre" y luego ingresa su apellido en el campo "Apellido".
+3.	El cliente ingresa su correo electrónico en el campo "Correo".
+   - El sistema valida que el formato del correo electrónico sea correcto.
+4.	El cliente ingresa un nombre de usuario en el campo "Username" y luego ingresa una contraseña en el campo "Password".
 o	El sistema enmascara la contraseña para garantizar la privacidad del usuario.
-5.	- El cliente hace clic en el botón "GUARDAR".
-6.	- El sistema valida que todos los campos estén completos.
-7.	- Si la validación es exitosa, el sistema guarda la información del cliente en la base de datos. Luego, el sistema muestra un mensaje de confirmación indicando que la cuenta ha sido creada exitosamente.
+5.	El cliente hace clic en el botón "GUARDAR".
+6.	El sistema valida que todos los campos estén completos.
+7.	Si la validación es exitosa, el sistema guarda la información del cliente en la base de datos. Luego, el sistema muestra un mensaje de confirmación indicando que la cuenta ha sido creada exitosamente.
 
 Flujos Alternativos:
-•	F1: Si el formato del correo electrónico ingresado es incorrecto, el sistema muestra un mensaje de error indicando que el formato del correo electrónico no es válido.
-•	F2: Si el usuario deja algún campo vacío, el sistema muestra un mensaje de error indicando que todos los campos son obligatorios.
-•	F3: Si hay un problema con la conexión a la base de datos, el sistema muestra un mensaje de error indicando que no se pudo crear la cuenta en ese momento y que intente más tarde.
+- F1: Si el formato del correo electrónico ingresado es incorrecto, el sistema muestra un mensaje de error indicando que el formato del correo electrónico no es válido.
+- F2: Si el usuario deja algún campo vacío, el sistema muestra un mensaje de error indicando que todos los campos son obligatorios.
+- F3: Si hay un problema con la conexión a la base de datos, el sistema muestra un mensaje de error indicando que no se pudo crear la cuenta en ese momento y que intente más tarde.
 
 Precondiciones:
-•	El usuario tiene acceso a la pantalla de creación de cuenta.
+- El usuario tiene acceso a la pantalla de creación de cuenta.
 
 Postcondiciones:
-•	El usuario tendrá una cuenta creada y podrá iniciar sesión en el sistema.
+- El usuario tendrá una cuenta creada y podrá iniciar sesión en el sistema.
 
 
 # Backlog de iteraciones
 
 Historias de usuario que completaremos en esta segunda iteración:
 
-1.	COMO cliente QUIERO disponer de un carrito de compras PARA la organización de mis compras.
-•	Tipo: Funcional
-•	Prioridad: Alta
-•	Criterios de aceptación: 
-o	El carrito debe permitir agregar, eliminar y modificar la cantidad de productos.
-o	El carrito debe calcular automáticamente el total de la compra en base a la cantidad y precio de los productos.
-•	Impacto: Mejora la conveniencia de los clientes durante el proceso de compra.
+1.	**COMO** cliente **QUIERO** disponer de un carrito de compras **PARA** la organización de mis compras.
+- **Tipo**: Funcional
+- **Prioridad**: Alta
+- **Criterios de aceptación**: 
+      - El carrito debe permitir agregar, eliminar y modificar la cantidad de productos.
+      - El carrito debe calcular automáticamente el total de la compra en base a la cantidad y precio de los productos.
+- **Impacto**: Mejora la conveniencia de los clientes durante el proceso de compra.
 
 2.	COMO cliente QUIERO que los productos se separen por categorías PARA poder encontrar de manera rápida y sencilla lo que busco en la tienda online.
 •	Tipo: Funcional
