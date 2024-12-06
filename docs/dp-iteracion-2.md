@@ -15,7 +15,7 @@ Para mantener la cohesión, todos los grupos trabajamos en constante comunicaci�
 
 # Diseño OO
 
-[Diagrama de clases]((https://github.com/NicolasJavierSosa/ProyectoIntegrador-POO2-2024/blob/main/Imagenes/Tienda%20Ecologica%20(DDC%202.0).jpg))
+[Diagrama de clases](https://github.com/NicolasJavierSosa/ProyectoIntegrador-POO2-2024/blob/main/Imagenes/Tienda%20Ecologica%20(DDC%202.0).jpg)
 
 Para el diseño de este diagrama de clases utilizamos como base 3 patrones de diseños los cuales se pueden observar enmarcados en la imagen, el patrón COMPOSITE enmarcado en verde, DECORATOR enmarcado en anaranjado y STRATEGY en celeste.
 1.	*Composite*: En este patrón utilizamos como clase principal a la interfaz ComponenteProducto que define el comportamiento común para los objetos que pueden ser tratados de manera uniforme en una jerarquía de productos y paquetes. La clase Producto representa un artículo individual en la tienda, implementa la interfaz ComponenteProducto y proporciona una implementación específica de los métodos definidos, como el cálculo del precio y del peso de un producto individual. Por otro lado, la clase Paquete también implementa ComponenteProducto, permitiendo agrupar varios productos (o incluso otros paquetes) en una sola unidad.
