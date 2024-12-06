@@ -10,9 +10,11 @@ import lombok.Setter;
 public class DescuentoTemporada extends DescuentoDecorator{
 
     @NotNull
-    LocalDateTime fechaInicio;
+    int añoActual = LocalDateTime.now().getYear();
     @NotNull
-    LocalDateTime fechaFin;
+    LocalDateTime fechaInicio = LocalDateTime.of(añoActual, 12, 1, 0, 0);
+    @NotNull
+    LocalDateTime fechaFin = LocalDateTime.of(añoActual + 1, 1, 10, 23, 59);
     @NotNull
     double descuento = 20;
 
@@ -29,6 +31,10 @@ public class DescuentoTemporada extends DescuentoDecorator{
         else{
             return precioFinal.getPrecio() - ((precioFinal.getPrecio() * descuento) / 100);
         }
+    }
+
+    public double getDescuento(){
+        return ((precioFinal.getPrecio() * descuento) / 100);
     }
 
 }

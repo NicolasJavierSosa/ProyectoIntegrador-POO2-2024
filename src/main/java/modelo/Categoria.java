@@ -1,8 +1,6 @@
 package modelo;
 
 import java.util.Set;
-import java.util.UUID;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,39 +23,29 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
-    
     @Column(name = "id_categoria")
-    private String idCategoria = UUID.randomUUID().toString();
+    private int idCategoria;
+
     @NotBlank
     @Size(min = 10, max = 20)
     @Column(nullable = false, length = 20)
-    private String nombre;
+    private String nombreCategoria;
+
     @NotBlank
     @Size(min = 25, max = 225)
     @Column(nullable = false, length = 225)
-    private String descripcion;
+    private String descripcionCategoria;
 
+    @Column(nullable = false)
     @OneToMany(mappedBy = "categoria")
     private Set<Producto> productos;
 
+    @NotBlank
+    @Column(nullable = false)
+    private String imgCategoria;
+
     public Categoria(Set<Producto> productos) {
         this.productos = productos;
-    }
-
-    public String getId() {
-        return idCategoria;
-    }
-
-    public void setId(String idCategoria) {
-        this.idCategoria = idCategoria;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
     
     public Set<Producto> getProductos() {

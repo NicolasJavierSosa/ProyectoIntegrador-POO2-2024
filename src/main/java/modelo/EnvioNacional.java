@@ -9,7 +9,7 @@ public class EnvioNacional implements Envio{
 
     @Override
     public String tiempoEntrega(){
-        return "Se entregará dentro de 14 a 20 días habiles";
+        return "Envio nacional: su pedido se entregará dentro de 14 a 20 días habiles";
     }
 
     @Override

@@ -1,78 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>Producto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  </head>
+    <script>
+        let productoSeleccionado;
+
+        function mostrarModalCantidad(boton) {
+            productoSeleccionado = boton.getAttribute('data-idProducto'); // Guarda el botón para acceder a su data-idProducto
+            const modal = new bootstrap.Modal(document.getElementById('modalCantidad'));
+            modal.show(); // Muestra el modal
+        }
+
+        function agregarAlCarrito(cantidad) {
+            if (cantidad <= 0) {
+                alert('La cantidad debe ser mayor a 0');
+                return;
+            }
+            fetch('/inicio/agregar', {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ idProducto: productoSeleccionado, cantidad: cantidad })
+            })
+                .then(response => response.text())
+                .then(message => {
+                    alert(message);
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('modalCantidad'));
+                    modal.hide();
+                })
+                .catch(error => {
+                    alert('Hubo un error al agregar el producto: ' + error);
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('modalCantidad'));
+                    modal.hide();
+                });
+        }
+
+
+
+    </script>
+
+</head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/inicio">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/catalogo}">Catálogo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Categorías</a></li>
-                    <li class="nav-item"><a class="nav-link" href="producto">Producto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
                 </ul>
-                <a class="btn btn-outline-success" href="sesion" role="button">Iniciar sesión</a>
-                <a class="btn btn-outline-success" href="sesion" role="button">Registrarse</a>
+                <!-- Mostrar saludo y botón según estado de sesión -->
+                <div th:if="${session.usuario != null}">
+                    <span th:text="'Hola, ' + ${session.usuario.nombreCompleto} + '!'" class="me-2"></span>
+                    <a class="btn btn-outline-danger btn-cerrar-sesion" href="/cerrar-sesion">Cerrar sesión</a>
+
+                </div>
+
+                <div th:if="${session.usuario == null}">
+                    <a class="btn btn-outline-success me-2" href="sesion" aria-label="Iniciar sesión">Iniciar sesión</a>
+                    <a class="btn btn-outline-success" href="registro" aria-label="Registrarse">Registrarse</a>
+                </div>
             </div>
         </nav>
+
+
     </header>
- 
-    <div class="product-container">
+
+    <div class="product-container another-class">
         <div class="product-image">
-          <img src="./imagenes/download.jpg" alt="Imagen del producto ecológico">
+            <img th:src="${producto.imgProducto}" alt="Imagen del producto" class="producto-imagen">
         </div>
         <div class="product-info">
-          <form>
-            <div class="form-group">
-                <label for="product-name">Nombre y característica del producto:</label>
-                <p><span th:text="${producto.nombre}">Nombre del producto</span></p>
-            </div>
-            <div class="form-group">
-                <label for="product-description">Descripción:</label>
-                <p><span th:text="${producto.descripcion}">Descripción del producto</span></p>
-            </div>
-            <div class="form-group">
-              <label>Precio:</label>
-              <p>Precio: <span th:text="${producto.precio}">Precio del producto</span></p>
-            </div>
-            <div class="form-group quantity">
-              <button type="button" id="decrement">-</button>
-              <input type="number" id="quantity" name="quantity" value="1" min="1">
-              <button type="button" id="increment">+</button>
-            </div>
-            <a th:href="@{/orden/{id}(id=${producto.id})}" type="submit" class="buy-button" >Comprar Ahora</a>
-     <!--     <button type="submit" class="buy-button">Comprar ahora</button> -->  
-            <div class="tabs">
-              <button class="tab-button active" type="button" onclick="openTab(event, 'description')">Descripción</button>
-              <button class="tab-button" type="button" onclick="openTab(event, 'additional-info')">Información Adicional</button>
-              <button class="tab-button" type="button" onclick="openTab(event, 'rating')">Valoración</button>
-          </div>
-            <div class="tab-content active" id="description">
-              <p>Peso: <span th:text="${producto.peso}">Peso del producto</span></p>
-            </div>
-            <div class="tab-content" id="additional-info">
-              <p>Información adicional del producto.</p>
-            </div>
-            <div class="tab-content" id="rating">
-              <label for="rating-select">Valoración:</label>
-              <select id="rating-select" name="rating-select">
-                <option value="1">1 estrella</option>
-                <option value="2">2 estrellas</option>
-                <option value="3">3 estrellas</option>
-                <option value="4">4 estrellas</option>
-                <option value="5">5 estrellas</option>
-              </select>
-            </div>
-          </form>
+            <form>
+                <div class="form-group">
+                    <label for="product-name">Nombre y característica del producto:</label>
+                    <p><span th:text="${producto.nombre}">Nombre del producto</span></p>
+                </div>
+                <div class="form-group">
+                    <label for="product-description">Descripción:</label>
+                    <p><span th:text="${producto.descripcion}">Descripción del producto</span></p>
+                </div>
+                <div class="form-group">
+                    <label>Precio:</label>
+                    <p>Precio: <span th:text="${producto.precio}">Precio del producto</span></p>
+                </div>
+                <a th:data-idProducto="${producto.idProducto}" th:onclick="mostrarModalCantidad(this)"
+                    class="buy-button">Agregar al Carrito</a>
+
+                <div class="tabs">
+                    <button class="tab-button active" type="button"
+                        onclick="openTab(event, 'description')">Descripción</button>
+                </div>
+
+                <div class="tab-content active" id="description">
+                    <p>Categoria al que pertenece: <span th:text="${producto.categoria.nombreCategoria}">categoria del producto</span></p>
+                    <p>El peso del producto es: <span th:text="${producto.peso}">Peso del producto</span></p>
+                    <p>La cantidad disponible es: <span th:text="${producto.cantDisp}">cantidad disponible</span></p>
+                </div>
+            </form>
         </div>
-      </div>
-      
-      <script src="script.js"></script>
-</body>   
+    </div>
+
+    <div class="modal fade" id="modalCantidad" tabindex="-1" aria-labelledby="modalCantidadLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCantidadLabel">Seleccionar Cantidad</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="cantidadProducto" class="form-label">Cantidad:</label>
+                    <input type="number" id="cantidadProducto" class="form-control" min="1" value="1">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="confirmarCantidad"
+                        th:onclick="agregarAlCarrito(cantidadProducto.value)">Agregar al Carrito</button>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

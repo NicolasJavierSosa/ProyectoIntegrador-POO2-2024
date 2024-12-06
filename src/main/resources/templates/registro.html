@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Inicio</a></li>
+              <li class="nav-item"><a class="nav-link" href="catalogo">Catálogo</a></li>
+              <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
+            </ul>
+            <!-- Mostrar saludo y botón según estado de sesión -->
+            <div th:if="${session.usuario != null}">
+              <span th:text="'Hola, ' + ${usuario.nombreCompleto} + '!'" class="me-2"></span>
+              <a class="btn btn-outline-danger" href="/cerrar-sesion" id="btn-cerrar-sesion">Cerrar sesión</a>
+            </div>
+    
+            <div th:if="${session.usuario == null}">
+              <a class="btn btn-outline-success me-2" href="sesion" aria-label="Iniciar sesión">Iniciar sesión</a>
+              <a class="btn btn-outline-success" href="registro" aria-label="Registrarse">Registrarse</a>        </div>
+          </div>
+        </nav>
+      </header>
+      <div th:if="${alerta}" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <span th:text="${alerta}"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <div class="full-screen-background">
+        <div class="login-register-container">
+            <h1 class="form-title">Registro de Usuario</h1>
+
+            <form th:action="@{/registro}" th:object="${usuario}" method="post">
+                <input type="hidden" th:field="*{id}" />
+
+                <div class="form-group">
+                    <label>Nombre:</label>
+                    <input type="text" th:field="*{nombre}" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                    <label>Apellido:</label>
+                    <input type="text" th:field="*{apellido}" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                    <label>Correo:</label>
+                    <input type="text" th:field="*{correo}" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input type="text" th:field="*{username}" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" th:field="*{password}" class="form-input" />
+                </div>
+
+                <button type="submit" class="submit-button">Guardar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

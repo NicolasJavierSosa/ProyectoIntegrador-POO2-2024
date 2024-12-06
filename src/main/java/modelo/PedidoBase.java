@@ -1,19 +1,15 @@
 package modelo;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@Table(name = "pedido_base")
 @Getter @Setter @NoArgsConstructor
 public class PedidoBase implements PrecioFinal{
 
@@ -21,11 +17,14 @@ public class PedidoBase implements PrecioFinal{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
     @Column(updatable = false)
-    private String idDetalle;
+    private int idDetalle;
+
     @NotNull
     private int cantidad;
+
     @NotNull
     private Double subtotal;
+    
     @NotNull
     private Double pesoSubtotal;
 
@@ -39,6 +38,12 @@ public class PedidoBase implements PrecioFinal{
     @Override
     public int getCantidad(){
         int x = cantidad;
+        return x;
+    }
+
+    @Override
+    public double getPeso(){
+        double x = pesoSubtotal;
         return x;
     }
 

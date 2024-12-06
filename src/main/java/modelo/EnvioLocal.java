@@ -10,7 +10,7 @@ public class EnvioLocal implements Envio{
 
     @Override
     public String tiempoEntrega(){
-        return "Se entregará dentro de 3 días habiles";
+        return "Envio local: Su pedido se entregará dentro de 3 días habiles";
     }
 
     @Override

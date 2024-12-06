@@ -9,7 +9,7 @@ public class EnvioProvincial implements Envio{
 
     @Override
     public String tiempoEntrega(){
-        return "Se entregará dentro de 7 a 10 días habiles";
+        return "Envio provincial: su pedido se entregará dentro de 7 a 10 días habiles";
     }
 
     @Override

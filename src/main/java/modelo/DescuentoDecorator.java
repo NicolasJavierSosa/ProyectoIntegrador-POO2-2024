@@ -31,4 +31,9 @@ public class DescuentoDecorator implements PrecioFinal{
         return precioFinal.getCantidad();
     }
 
+    @Override
+    public double getPeso(){
+        return precioFinal.getPeso();
+    }
+
 }

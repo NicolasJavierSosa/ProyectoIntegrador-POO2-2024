@@ -1,17 +1,16 @@
 package com.integrador.proyecto.controller;
 
 import org.springframework.stereotype.Controller;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import lombok.NoArgsConstructor;
-
 
 @Controller
 @NoArgsConstructor
-public class NoController {
+public class ContactoController {
 
-    /*@GetMapping({"/", "/ejemplo"})
+    @GetMapping("/contacto")
     public String inicio(){
-        return "ejemplo";
-    }*/
-
+        return "contacto";
+    }
+    
 }

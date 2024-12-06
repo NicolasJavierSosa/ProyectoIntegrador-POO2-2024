@@ -1,20 +1,16 @@
 package com.integrador.proyecto.servicio;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.integrador.proyecto.repositorio.PaqueteRepositorio;
-
-import modelo.ComponenteProducto;
 import modelo.Paquete;
 
 @Service
 public class PaqueteServicio {
 
+    @Autowired
     private PaqueteRepositorio repository;
-    private Paquete compra = new Paquete();
 
     @Autowired
     PaqueteServicio(PaqueteRepositorio repository){
@@ -30,12 +26,8 @@ public class PaqueteServicio {
         return x;
     }
 
-    public void eliminarPaquete(String idPaquete){
+    public void eliminarPaquete(Integer idPaquete){
         repository.deleteById(idPaquete);
-    }
-
-    public void agregarCompra(ComponenteProducto compra){
-        this.compra.getElementos().add(compra);
     }
 
 }

@@ -5,8 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,14 +24,20 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
     @Column(updatable = false)
-    private String idPedido;
+    private int idPedido;
+
     @NotNull
     private EstadoPedido estado = EstadoPedido.SIN_ENTREGAR;
+
     @NotNull
-    private LocalDate fecha = LocalDate.now();
+    private LocalDate fechaCreacion = LocalDate.now();
+
     @NotNull
-    private Double monto;
-    @NotNull
-    private Double pesoTotal;
+    @ManyToOne
+    private Usuario comprador;
+
+    @Size(min = 10, max = 150)
+    @Column(nullable = false, length = 150)
+    private String direccionEntrega;
 
 }

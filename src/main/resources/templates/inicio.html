@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,449 +9,561 @@
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-      .card{
-    margin: 10px;
-    padding-bottom: 10%;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: #28012b;
-    cursor: default;
-    transition: all 300ms ease;
-}
+  <style>
+    .card {
+      width: 100%;
+      height: 200px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
 
-.productoo {
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 15px;
-  text-align: center;
-  height: 350px; /* Altura fija para todos los productos */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Espaciado uniforme entre elementos */
-}
+    .card img {
+      width: 100%;
+      /* Or a fixed width, e.g., 200px; */
+      height: 100%;
+      /* Or a fixed height, e.g., 200px; */
+    }
 
-.productoo img {
-  max-width: 100%;
-  height: 150px; /* Altura fija para las imágenes */
-  object-fit: cover; /* Asegura que las imágenes se ajusten bien al espacio */
-  border-radius: 5px;
-}
+    .card h3 {
+      margin: 5px;
+      color: #333;
+      /*Ajustar color*/
+      font-size: 1.1em;
+      text-align: center;
+      position: absolute;
+      /*Ajustar texto*/
+      bottom: 0;
+      /*Para que el texto este en la parte inferior*/
+      background-color: rgba(255, 255, 255, 0.8);
+      width: 100%;
+    }
 
-.productoo h3 {
-  font-size: 18px;
-  margin: 10px 0;
-  min-height: 40px; /* Asegura espacio fijo para el título */
-}
+    .productoo {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      text-align: center;
+      height: 350px;
+      /* Altura fija para todos los productos */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      /* Espaciado uniforme entre elementos */
+    }
 
-.productoo p {
-  color: #555;
-  margin: 5px 0;
-  min-height: 20px; /* Espacio consistente para el precio */
-}
+    .productoo img {
+      max-width: 100%;
+      height: 150px;
+      /* Altura fija para las imágenes */
+      object-fit: cover;
+      /* Asegura que las imágenes se ajusten bien al espacio */
+      border-radius: 5px;
+    }
 
-.productoo a {
-  margin-top: auto; /* Empuja el botón al final del contenedor */
-}
-.carousel-control-prev-icon, .carousel-control-next-icon {
-  color: white; /* O cualquier otro color que contraste con el fondo negro */
-}
-.carousel {
-  width: 650px; /* Establece un ancho fijo para el carrusel */
-  margin: 50px auto; /* Centra el carrusel horizontalmente y agrega margen superior/inferior */
-}
+    .productoo h3 {
+      font-size: 18px;
+      margin: 10px 0;
+      min-height: 40px;
+      /* Asegura espacio fijo para el título */
+    }
 
-.carousel-item img {
-  width: 80%; /* Ocupa todo el ancho del carrusel */
-  height: auto; /* Mantén la proporción de la imagen */
-  object-fit: cover; /* Ajusta la imagen al espacio disponible */
-}
+    .productoo p {
+      color: #555;
+      margin: 5px 0;
+      min-height: 20px;
+      /* Espacio consistente para el precio */
+    }
+
+    .productoo a {
+      margin-top: auto;
+      /* Empuja el botón al final del contenedor */
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      color: white;
+      /* O cualquier otro color que contraste con el fondo negro */
+    }
+
+    .carousel {
+      width: 650px;
+      /* Establece un ancho fijo para el carrusel */
+      margin: 50px auto;
+      /* Centra el carrusel horizontalmente y agrega margen superior/inferior */
+    }
+
+    .carousel-item img {
+      width: 80%;
+      /* Ocupa todo el ancho del carrusel */
+      height: auto;
+      /* Mantén la proporción de la imagen */
+      object-fit: cover;
+      /* Ajusta la imagen al espacio disponible */
+    }
 
 
 
-.card:hover{
-    box-shadow: 5px 1px 5px 1px #28012b;
-    transform: translateY(-2%);
-}
-.card img{
-    width: 100%;
-    height: 250px;
-}
-footer {
+    .card:hover {
+      box-shadow: 5px 1px 5px 1px #28012b;
+      transform: translateY(-2%);
+    }
 
-    background-color: #333; /* Color de fondo oscuro */
-    color: #fff; /* Color de texto claro */
-    padding: 20px;
-    text-align: center; /* Centra el contenido horizontalmente */
-    margin-top: 30px !important;
-  }
-  
-  footer h5 {
-      margin-bottom: 10px; /* Espacio entre el título y el contenido */
+    .card img {
+      width: 100%;
+      height: 250px;
+    }
+
+    footer {
+
+      background-color: #333;
+      /* Color de fondo oscuro */
       color: #fff;
-  }
-  
-  footer p {
-      margin-bottom: 5px; /* Espacio entre párrafos */
-      color: #eee; /* Color del texto ligeramente más claro */
-  }
-  
-  footer a {
-      color: #fff; /* Color de los enlaces */
-      text-decoration: none; /* Quita el subrayado */
-      margin: 0 10px; /* Espacio entre iconos */
-  }
-  
-  footer i { /* Estilos para los iconos de redes sociales */
+      /* Color de texto claro */
+      padding: 20px;
+      text-align: center;
+      /* Centra el contenido horizontalmente */
+      margin-top: 30px !important;
+    }
+
+    footer h5 {
+      margin-bottom: 10px;
+      /* Espacio entre el título y el contenido */
+      color: #fff;
+    }
+
+    footer p {
+      margin-bottom: 5px;
+      /* Espacio entre párrafos */
+      color: #eee;
+      /* Color del texto ligeramente más claro */
+    }
+
+    footer a {
+      color: #fff;
+      /* Color de los enlaces */
+      text-decoration: none;
+      /* Quita el subrayado */
+      margin: 0 10px;
+      /* Espacio entre iconos */
+    }
+
+    footer i {
+      /* Estilos para los iconos de redes sociales */
       margin-right: 5px;
-  }
-  
-  
-
-body {
-    font-family: sans-serif;
-    margin: 0;
-    display: grid;
-    min-height: 100vh; /* Asegurar que el grid ocupe toda la altura de la ventana */
-}
-
-header {
-    background-image: url('./imagenes/pngtree-rustic-bamboo-fence-panels-and-textural-patterns-image_13698878.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 220px; /* Ajusta este valor a la altura que desees */
-    margin-bottom: 20px; /* Agrega espacio debajo del header */
-}
-
-.navbar {
-    display: grid;
-    grid-template-columns: 1fr auto; /* Navbar centrado con espacio para el usuario */
-    align-items: center; /* Alinea verticalmente al centro */
-    padding: 0 20px; /* Espacio horizontal */
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center; /* Centra el nav */
-}
-
-nav li {
-    margin: 0 10px;
-}
-
-.usuario {
-    text-align: right; /* Alinea a la derecha */
-}
+    }
 
 
 
-.search-bar {
-    display: flex;
-    margin-bottom: 20px;
-    align-items: center; /* alinea verticalmente al centro */
-}
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      display: grid;
+      min-height: 100vh;
+      /* Asegurar que el grid ocupe toda la altura de la ventana */
+    }
 
-.search-bar input[type="text"] {
-    flex-grow: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    margin-right: 10px; /* Espacio entre input y boton */
-}
+    header {
+      background-image: url('./imagenes/pngtree-rustic-bamboo-fence-panels-and-textural-patterns-image_13698878.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 220px;
+      /* Ajusta este valor a la altura que desees */
+      margin-bottom: 20px;
+      /* Agrega espacio debajo del header */
+    }
 
-.search-bar button {
-    padding: 8px 15px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
+    .navbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      /* Navbar centrado con espacio para el usuario */
+      align-items: center;
+      /* Alinea verticalmente al centro */
+      padding: 0 20px;
+      /* Espacio horizontal */
+    }
 
-.categorias {
-    padding: 20px;
-}
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      /* Centra el nav */
+    }
 
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-    grid-gap: 20px;
-}
+    nav li {
+      margin: 0 10px;
+    }
 
-.category {
-    border: 1px solid #ccc;
-    padding: 20px;
-    text-align: center;
-}
-
-
-/* Estilo detalle del producto*/
-.product-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    background-color: #fff;
-    max-width: 1200px;
-    margin: 20px auto;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .product-image img {
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
-  }
-  
-  .product-info {
-    margin-left: 20px;
-    flex: 1;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  input[type="text"],
-  textarea,
-  select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  textarea {
-    height: 80px;
-  }
-  
-  .quantity {
-    display: flex;
-    align-items: center;
-  }
-  
-  .quantity button {
-    padding: 5px 15px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    cursor: pointer;
-  }
-  
-  .quantity input {
-    width: 50px;
-    text-align: center;
-    margin: 0 5px;
-  }
-  
-  .buy-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .buy-button:hover {
-    background-color: #45a049;
-  }
-  
-  .tabs {
-    display: flex;
-    margin-top: 15px;
-  }
-  
-  .tab-button {
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #f1f1f1;
-    border: 1px solid #ccc;
-    border-radius: 4px 4px 0 0;
-  }
-  
-  .tab-button.active {
-    background-color: #fff;
-    border-bottom: none;
-  }
-  
-  .tab-content {
-    display: none;
-    border: 1px solid #ccc;
-    border-radius: 0 4px 4px 4px;
-    padding: 15px;
-    margin-top: -1px;
-  }
-  
-  .tab-content.active {
-    display: block;
-  }
+    .usuario {
+      text-align: right;
+      /* Alinea a la derecha */
+    }
 
 
 
-  /*Catalogo*/
+    .search-bar {
+      display: flex;
+      margin-bottom: 20px;
+      align-items: center;
+      /* alinea verticalmente al centro */
+    }
+
+    .search-bar input[type="text"] {
+      flex-grow: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+      /* Espacio entre input y boton */
+    }
+
+    .search-bar button {
+      padding: 8px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .categorias {
+      padding: 20px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      /* Responsive grid */
+      grid-gap: 20px;
+    }
+
+    .category {
+      border: 1px solid #ccc;
+      padding: 20px;
+      text-align: center;
+    }
 
 
-  .main-grid {
-    display: flex;
-    padding: 20px;
-}
-  .categorias {
-    width: 20%;
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-left: auto;
-    /* Mover categorías a la derecha */
-}
+    /* Estilo detalle del producto*/
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+      background-color: #fff;
+      max-width: 1200px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-.categorias ul {
-    list-style: none;
-    padding: 0;
-}
+    .product-image img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 8px;
+    }
 
-.categorias ul li {
-    margin-bottom: 10px;
-}
+    .product-info {
+      margin-left: 20px;
+      flex: 1;
+    }
 
-.categorias ul li a {
-    text-decoration: none;
-    color: #4CAF50;
-    font-weight: bold;
-}
+    .form-group {
+      margin-bottom: 15px;
+    }
 
-.catalogo-container {
-    flex-grow: 1;
-    padding-right: 20px;
-}
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
 
-.catalogo-container h1 {
-    margin-bottom: 10px;
-}
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
 
-.form-select {
-    margin-bottom: 20px;
-    width: 20%;
-    font-size: 0.9rem;
-    /* Ajustar tamaño del combobox */
-}
+    textarea {
+      height: 80px;
+    }
 
-.catalogo {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
+    .quantity {
+      display: flex;
+      align-items: center;
+    }
 
-.producto {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+    .quantity button {
+      padding: 5px 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      cursor: pointer;
+    }
 
-.producto img {
-    max-width: 100%;
-    height: auto;
-}
+    .quantity input {
+      width: 50px;
+      text-align: center;
+      margin: 0 5px;
+    }
 
-.producto h3 {
-    font-size: 18px;
-    margin: 10px 0;
-    color: #333;
-}
+    .buy-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
 
-.producto p {
-    color: #555;
-}
+    .buy-button:hover {
+      background-color: #45a049;
+    }
 
-.boton {
-    display: inline-block;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    margin: 15px 0;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-}
+    .tabs {
+      display: flex;
+      margin-top: 15px;
+    }
 
-.boton:hover {
-    background-color: #45a049;
-}
+    .tab-button {
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      border-radius: 4px 4px 0 0;
+    }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    margin-top: auto;
-    width: 100%;
-}
+    .tab-button.active {
+      background-color: #fff;
+      border-bottom: none;
+    }
 
-footer a {
-    color: #4CAF50;
-    text-decoration: none;
-    margin: 0 10px;
-}
+    .tab-content {
+      display: none;
+      border: 1px solid #ccc;
+      border-radius: 0 4px 4px 4px;
+      padding: 15px;
+      margin-top: -1px;
+    }
 
-footer a:hover {
-    text-decoration: underline;
-}
+    .tab-content.active {
+      display: block;
+    }
 
-.paginacion {
-    text-align: center;
-    margin: 20px 0;
-}
 
-.paginacion a {
-    text-decoration: none;
-    margin: 0 5px;
-    padding: 10px 15px;
-    color: #4CAF50;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
 
-.paginacion a.active {
-    background-color: #4CAF50;
-    color: white;
-    border-color: #4CAF50;
-}
+    /*Catalogo*/
 
-.paginacion a:hover {
-    background-color: #45a049;
-    color: white;
-}
-    </style>
-    <script>
-      function agregarAlCarrito(idProducto){
-        const data = {id : idProducto};
 
-        fetch('/inicio/agregar', {method:"POST", headers: {'Content-Type': 'application/json'}, 
-        body: JSON.stringify(data)})
-        .then(response => response.text())
-        .then(message => alert(message))
-        .then(error => alert('Hubo un error al agregar el producto: ' + error))
+    .main-grid {
+      display: flex;
+      padding: 20px;
+    }
+
+    .categorias {
+      width: 20%;
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-left: auto;
+      /* Mover categorías a la derecha */
+    }
+
+    .categorias ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .categorias ul li {
+      margin-bottom: 10px;
+    }
+
+    .categorias ul li a {
+      text-decoration: none;
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+    .catalogo-container {
+      flex-grow: 1;
+      padding-right: 20px;
+    }
+
+    .catalogo-container h1 {
+      margin-bottom: 10px;
+    }
+
+    .form-select {
+      margin-bottom: 20px;
+      width: 20%;
+      font-size: 0.9rem;
+      /* Ajustar tamaño del combobox */
+    }
+
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .producto {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .producto img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .producto h3 {
+      font-size: 18px;
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .producto p {
+      color: #555;
+    }
+
+    .boton {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      margin: 15px 0;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .boton:hover {
+      background-color: #45a049;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+      width: 100%;
+    }
+
+    footer a {
+      color: #4CAF50;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .paginacion {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .paginacion a {
+      text-decoration: none;
+      margin: 0 5px;
+      padding: 10px 15px;
+      color: #4CAF50;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .paginacion a.active {
+      background-color: #4CAF50;
+      color: white;
+      border-color: #4CAF50;
+    }
+
+    .paginacion a:hover {
+      background-color: #45a049;
+      color: white;
+    }
+
+    .personal .row {
+      display: flex;
+      justify-content: space-between;
+      /*Importante: Distribuye los elementos horizontalmente*/
+    }
+
+    .col-md-4 {
+      width: calc(33.33% - 10px);
+      /* Ajusta el ancho de las columnas para que ocupen el espacio disponible, y el 10px es para el espacio entre cada columna*/
+      margin: 5px;
+      /* Espacio entre cuadros*/
+      padding: 0;
+      /*Quita el padding heredado*/
+    }
+
+
+
+    /* Ajusta el tamaño de las imágenes*/
+    figure {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <script>
+    let productoSeleccionado;
+
+    function mostrarModalCantidad(boton) {
+      productoSeleccionado = boton.getAttribute('data-idProducto'); // Guarda el botón para acceder a su data-idProducto
+      const modal = new bootstrap.Modal(document.getElementById('modalCantidad'));
+      modal.show(); // Muestra el modal
+    }
+
+    function agregarAlCarrito(cantidad) {
+      if (cantidad <= 0) {
+        alert('La cantidad debe ser mayor a 0');
+        return;
       }
-    </script>
+      fetch('/inicio/agregar', {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idProducto: productoSeleccionado, cantidad: cantidad })
+      })
+        .then(response => response.text())
+        .then(message => {
+          alert(message);
+          const modal = bootstrap.Modal.getInstance(document.getElementById('modalCantidad'));
+          modal.hide();
+        })
+        .catch(error => {
+          alert('Hubo un error al agregar el producto: ' + error);
+          const modal = bootstrap.Modal.getInstance(document.getElementById('modalCantidad'));
+          modal.hide();
+        });
+    }
+
+
+    function mostrarMensaje(mensaje) {
+      const nombre = mensaje.getAttribute('data-categoriaNombre');
+      alert(nombre);
+    }
+  </script>
 </head>
 
 <body>
@@ -458,34 +571,48 @@ footer a:hover {
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="inicio">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="catalogo">Catálogo</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Categorías</a></li>
-        <!--  <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>  -->
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="/inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="/catalogo">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
         </ul>
-        <a class="btn btn-outline-success" href="/sesion" role="button">Iniciar sesión</a>
-        <a class="btn btn-outline-success" href="/sesion" role="button">Registrarse</a>
+        <!-- Mostrar saludo y botón según estado de sesión -->
+        <div th:if="${session.usuario != null}">
+          <span th:text="'Hola, ' + ${session.usuario.nombreCompleto} + '!'" class="me-2"></span>
+          <a class="btn btn-outline-danger" href="/cerrar-sesion" aria-label="Cerrar sesión">Cerrar sesión</a>
+        </div>
+
+        <div th:if="${session.usuario == null}">
+          <a class="btn btn-outline-success me-2" href="sesion" aria-label="Iniciar sesión">Iniciar sesión</a>
+          <a class="btn btn-outline-success" href="registro" aria-label="Registrarse">Registrarse</a>
+        </div>
       </div>
     </nav>
   </header>
 
   <main class="container">
     <div class="row mt-3">
+      <!-- Columna para la barra de búsqueda -->
       <div class="col-md-8">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Búsqueda">
-          <button class="btn btn-outline-secondary" type="button">Buscar</button>
-        </div>
+        <form th:action="@{/catalogo}" method="get">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Búsqueda" name="buscar" th:value="${param.buscar}">
+            <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+          </div>
+        </form>
       </div>
-      <div class="col-md-4 d-flex justify-content-end">
-        <button class="btn" onclick= "location.href='carrito';" style="background-color: #f5f5dc; color: #000; border: none; justify-content: end;">
+
+      <!-- Columna para el carrito, ajustada a la derecha -->
+      <div class="col-md-4 d-flex justify-content-end align-items-center">
+        <button class="btn" onclick="location.href='/carrito';"
+          style="background-color: #f5f5dc; color: #000; border: none;">
           <img src="./imagenes/images-removebg-preview.png" alt="Imagen"
             style="width: 50px; height: 50px; margin-left: 5px;">
         </button>
       </div>
     </div>
 
-    <h1 style="text-align: center; font-family: Arial, sans-serif; font-size: 2.5rem; color: #333; margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);">
+    <h1
+      style="text-align: center; font-family: Arial, sans-serif; font-size: 2.5rem; color: #333; margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);">
       Últimos Agregados
     </h1>
     <div id="carouselExampleRide" class="carousel slide" data-bs-ride="carousel">
@@ -494,117 +621,125 @@ footer a:hover {
         <div class="carousel-item active">
           <div class="row">
             <div class="col-md-4" th:each="producto : ${productosDes.subList(0,3)}">
-              <div class="productoo text-center">
-                <img src="imagen1.jpg" alt="Botella de Agua Reutilizable" class="img-fluid">
-                <td th:text="${producto.nombre}">Botella de Agua Reutilizable</td>
-                <td th:text="'Precio: $' + ${producto.precio}">Precio: $15.99</td>
-                <a class="btn btn-primary" th:onclick="agregarAlCarrito(' + ${producto.idProducto} + ')">Agregar al carrito</a>
+              <div class="producto text-center">
+                <a th:href="@{/productos/producto/{id}(id=${producto.idProducto})}"
+                  style="text-decoration: none; color: inherit;">
+                  <img th:src="${producto.imgProducto}" alt="Imagen" class="img-fluid">
+                  <h3 th:text="${producto.nombre}">Nombre</h3>
+                  <p th:text="'Precio: $' + ${producto.precio}">Precio</p>
+                </a>
+                <button th:data-idProducto="${producto.idProducto}" class="btn btn-primary btn-agregar"
+                  th:onclick="mostrarModalCantidad(this)">Agregar al carrito</button>
               </div>
-            </div>           
+            </div>
           </div>
         </div>
-    
+
         <!-- Segundo grupo de productos -->
         <div class="carousel-item">
           <div class="row">
             <div class="col-md-4" th:each="producto : ${productosDes.subList(3,6)}">
-              <div class="productoo text-center">
-                <img src="imagen4.jpg" alt="Cepillo de Bambú" class="img-fluid">
-                <h3 th:text="${producto.nombre}">Cepillo de Bambú</h3>
-                <p th:text="'Precio: $' + ${producto.precio}">Precio: $4.99</p>
-                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+              <div class="producto text-center">
+                <a th:href="@{/productos/producto/{id}(id=${producto.idProducto})}"
+                  style="text-decoration: none; color: inherit;">
+                  <img th:src="${producto.imgProducto}" alt="Imagen" class="img-fluid">
+                  <h3 th:text="${producto.nombre}">Nombre</h3>
+                  <p th:text="'Precio: $' + ${producto.precio}">Precio</p>
+                </a>
+                <button th:data-idProducto="${producto.idProducto}" class="btn btn-primary btn-agregar"
+                  th:onclick="mostrarModalCantidad(this)">Agregar al carrito</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-    
+
       <!-- Controles del carrusel -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev" style="background-color: rgb(71, 151, 71); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; position: absolute; top: 50%; transform: translateY(-50%); left: -60px; z-index: 1;">
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev"
+        style="background-color: rgb(71, 151, 71); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; position: absolute; top: 50%; transform: translateY(-50%); left: -60px; z-index: 1;">
         <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
         <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next" style="background-color: rgb(71, 151, 71); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; position: absolute; top: 50%; transform: translateY(-50%); right: -60px; z-index: 1;">
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next"
+        style="background-color: rgb(71, 151, 71); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; position: absolute; top: 50%; transform: translateY(-50%); right: -60px; z-index: 1;">
         <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
         <span class="visually-hidden">Next</span>
-    </button>
+      </button>
     </div>
+
+    <style>
+      .carousel-item {
+        padding: 20px;
+        /* Add padding around the items */
+      }
+
+      .producto {
+        border: 1px solid #ccc;
+        /* Add a border to the product box */
+        padding: 15px;
+        margin-bottom: 15px;
+        /* Add space between boxes */
+        border-radius: 8px;
+        /* Add rounded corners */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        /* Add a subtle shadow */
+      }
+
+      .producto img {
+        max-height: 200px;
+        /* Limit image height */
+        margin-bottom: 10px;
+      }
+
+      .producto h3 {
+        margin-bottom: 5px;
+      }
+    </style>
 
 
     <div class="personal">
       <div class="row">
-        <div class="col-md-4" style="padding: 0% 0 0 0;">
-          <div class="card">
-            <figure>
-              <img src="./imagenes/juguetes.jpg">
-            </figure>
-            <h3>
-              Juegos y juguetes
-            </h3>
-          </div>
-        </div>
-        <div class="col-md-4" style="padding: 0% 0 0 0;">
-          <div class="card">
-            <figure>
-              <img src="./imagenes/Empaques.jpg">
-            </figure>
-            <h3>
-              Bolsas
-            </h3>
+        <div class="col-md-4" style="padding: 0% 0 0 0;" th:each="categoria: ${categorias}">
+          <!-- Formulario de filtro de categoría -->
+          <form th:action="@{/catalogo}" method="get" style="display: inline-block;">
+            <!-- Campo oculto que almacena el nombre de la categoría seleccionada -->
+            <input type="hidden" name="categoria" th:value="${categoria.nombreCategoria}">
 
-          </div>
-        </div>
-        <div class="col-md-4" style="padding: 0% 0 0 0;">
-          <div class="card">
-            <figure>
-              <img src="./imagenes/HigienePersonal.jpg" alt="">
-            </figure>
-            <h3>
-              Baño
-            </h3>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="personal">
-      <div class="row">
-        <div class="col-md-4" style="padding: 0% 0 0 0;">
-          <div class="card">
-            <figure>
-              <img src="./imagenes/juguetes.jpg">
-            </figure>
-            <h3>
-              Juegos y juguetes
-            </h3>
-          </div>
-        </div>
-        <div class="col-md-4" style="padding: 0% 0 0 0;">
-          <div class="card">
-            <figure>
-              <img src="./imagenes/Empaques.jpg">
-            </figure>
-            <h3>
-              Bolsas
-            </h3>
-
-          </div>
-        </div>
-        <div class="col-md-4" style="padding: 0% 0 0 0;">
-          <div class="card">
-            <figure>
-              <img src="./imagenes/HigienePersonal.jpg" alt="">
-            </figure>
-            <h3>
-              Baño
-            </h3>
-          </div>
+            <div class="card" th:data-categoriaNombre="${categoria.nombreCategoria}"
+              th:onclick="this.closest('form').submit()">
+              <figure>
+                <img th:src="${categoria.imgCategoria}" alt="Imagen de la categoría">
+              </figure>
+              <h3 th:text="${categoria.nombreCategoria}">Nombre</h3>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-    crossorigin="anonymous"></script>
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    </script>
+
+  <div class="modal fade" id="modalCantidad" tabindex="-1" aria-labelledby="modalCantidadLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCantidadLabel">Seleccionar Cantidad</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <label for="cantidadProducto" class="form-label">Cantidad:</label>
+          <input type="number" id="cantidadProducto" class="form-control" min="1" value="1">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="confirmarCantidad"
+            th:onclick="agregarAlCarrito(cantidadProducto.value)">Agregar al Carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 
@@ -615,17 +750,20 @@ footer a:hover {
     <div class="row">
       <div class="col-md-6">
         <h5>Información de Contacto</h5>
-        <p>Dirección: Calle Falsa 123</p>
-        <p>Teléfono: +54 3764211364</p>
-        <p>Email: EcoTienda@gmail.com</p>
+        <p>Dirección: Av. Libertador 1234, Buenos Aires, Argentina</p>
+        <p>Teléfono: +54 11 1234-5678</p>
+        <p>Email: contacto@ecotienda.com</p>
       </div>
       <div class="col-md-6">
         <h5>Redes Sociales</h5>
         <ul class="list-inline">
-          <li class="list-inline-item"><a href="#" class="text-light"><i class="fab fa-facebook-f"></i> Facebook</a>
+          <li class="list-inline-item"><a href="https://www.facebook.com/ecotienda" class="text-light"><i
+                class="fab fa-facebook-f"></i> Facebook</a>
           </li>
-          <li class="list-inline-item"><a href="#" class="text-light"><i class="fab fa-twitter"></i> Twitter</a></li>
-          <li class="list-inline-item"><a href="#" class="text-light"><i class="fab fa-instagram"></i> Instagram</a>
+          <li class="list-inline-item"><a href="https://www.twitter.com/ecotienda" class="text-light"><i
+                class="fab fa-twitter"></i> Twitter</a></li>
+          <li class="list-inline-item"><a href="https://www.instagram.com/ecotienda" class="text-light"><i
+                class="fab fa-instagram"></i> Instagram</a>
           </li>
         </ul>
       </div>

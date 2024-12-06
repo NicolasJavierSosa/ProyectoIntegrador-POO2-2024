@@ -8,24 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f4f4f4;
             color: #333;
-        }
-
-        header {
-            background-image: url('./image/imagenxd.jpeg');
-            background-size: cover;
-            background-position: center;
-            height: 220px;
-            margin-bottom: 20px;
         }
 
         .container {
@@ -39,47 +26,35 @@
             margin-bottom: 20px;
         }
 
-        .form-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
         .form-section {
-            width: 48%;
             background: #fff;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
 
         .form-group {
             margin-bottom: 15px;
         }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
+        .form-group label {
             font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
         }
 
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="number"],
-        textarea,
-        select {
+        .form-group input {
             width: 100%;
             padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
             font-size: 16px;
-            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
-        textarea {
-            resize: none;
+        .form-group input:focus {
+            border-color: #4CAF50;
+            outline: none;
         }
 
         .payment-option {
@@ -91,267 +66,252 @@
         }
 
         input[type="radio"] {
-            margin: 0;
             accent-color: #45a049;
-            /* Cambia el color del círculo si lo prefieres */
         }
 
-
-        .order-summary {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-            gap: 20px;
-        }
-
-        .order-details,
-        .cart-totals {
-            width: 48%;
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-        }
-
-        .cart-totals p {
-            display: flex;
-            justify-content: space-between;
-            margin: 10px 0;
-        }
-
-        .metodos-pago {
-            margin-top: 20px;
-            /* Ajusta el espaciado entre las opciones de pago y otros elementos */
-        }
-
-        .metodos-pago label {
-            display: flex;
-            align-items: center;
-            /* Asegura que las opciones y el texto estén alineados */
-            gap: 8px;
-            /* Menor espacio entre el círculo y el texto */
-            margin-bottom: 5px;
-            /* Reduce el espacio entre las opciones */
-        }
-
-        /* Botones de acción */
         .botones {
-            margin-top: 50px;
-            /* Mayor separación de las opciones de pago */
-            display: flex;
-            flex-direction: column;
-            /* Alineación vertical de botones */
-            gap: 15px;
-            /* Espaciado entre los botones */
-            align-items: center;
-            /* Centra los botones en el contenedor */
+            text-align: center;
+            margin-top: 20px;
         }
 
         .btn-realizar-pedido,
         .btn-cancelar {
-            width: 100%;
-            /* Botón ocupa todo el ancho disponible */
-            max-width: 300px;
-            /* Tamaño máximo del botón */
+            width: 48%;
             padding: 15px 20px;
             font-size: 16px;
             text-transform: uppercase;
             border-radius: 5px;
             border: none;
             cursor: pointer;
+            margin: 5px;
         }
 
         .btn-realizar-pedido {
             background-color: #4CAF50;
-            /* Naranja */
             color: white;
         }
 
         .btn-realizar-pedido:hover {
             background-color: #317933;
-            /* Oscurece el color al pasar el mouse */
         }
 
         .btn-cancelar {
             background-color: #f44336;
-            /* Rojo */
             color: white;
         }
 
         .btn-cancelar:hover {
             background-color: #d32f2f;
-            /* Oscurece el rojo al pasar el mouse */
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            margin-top: auto;
-            width: 100%;
-        }
-
-        footer a {
-            color: #4CAF50;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/inicio">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/catalogo">Catálogo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Categorías</a></li>
-                </ul>
-                <a class="btn btn-outline-success" href="/sesion" role="button">Iniciar sesión</a>
-                <a class="btn btn-outline-success" href="#" role="button">Registrarse</a>
-            </div>
-        </nav>
-    </header>
     <div class="container">
         <h1>Finalizar Compra</h1>
-        <div class="form-container">
-            <!-- Dirección de Facturación -->
-            <div class="form-section">
-                <h2>Dirección de Facturación</h2>
-                <form>
-                    <div class="form-group">
-                        <label for="nombre-facturacion">Nombre</label>
-                        <input type="text" id="nombre-facturacion" placeholder="Ingresa tu nombre">
-                    </div>
-                    <div class="form-group">
-                        <label for="apellido-facturacion">Apellido</label>
-                        <input type="text" id="apellido-facturacion" placeholder="Ingresa tu apellido">
-                    </div>
-                    <div class="form-group">
-                        <label for="compania-facturacion">Compañía</label>
-                        <input type="text" id="compania-facturacion" placeholder="Opcional">
-                    </div>
-                    <div class="form-group">
-                        <label for="direccion-facturacion">Dirección</label>
-                        <input type="text" id="direccion-facturacion" placeholder="Ingresa tu dirección">
-                    </div>
-                    <div class="form-group">
-                        <label for="ciudad-facturacion">Ciudad</label>
-                        <input type="text" id="ciudad-facturacion" placeholder="Ingresa tu ciudad">
-                    </div>
-                    <div class="form-group">
-                        <label for="email-facturacion">Email</label>
-                        <input type="email" id="email-facturacion" placeholder="Ingresa tu correo electrónico">
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono-facturacion">Teléfono</label>
-                        <input type="tel" id="telefono-facturacion" placeholder="Ingresa tu teléfono">
-                    </div>
-                </form>
+
+        <!-- Contenedor Datos para el envío -->
+        <div class="form-section">
+            <h2>Datos para el envío</h2>
+            <!-- Datos no editables -->
+            <div class="form-group">
+                <p><strong>Nombre y Apellido:</strong> <span th:text="${session.usuario.nombre}"></span> <span th:text="${session.usuario.apellido}"></span></p>
             </div>
-            <!-- Dirección de Envío -->
-            <div class="form-section">
-                <h2>Dirección de Envío</h2>
-                <form>
-                    <div class="form-group">
-                        <label for="nombre-envio">Nombre</label>
-                        <input type="text" id="nombre-envio" placeholder="Ingresa tu nombre">
-                    </div>
-                    <div class="form-group">
-                        <label for="apellido-envio">Apellido</label>
-                        <input type="text" id="apellido-envio" placeholder="Ingresa tu apellido">
-                    </div>
-                    <div class="form-group">
-                        <label for="compania-envio">Compañía</label>
-                        <input type="text" id="compania-envio" placeholder="Opcional">
-                    </div>
-                    <div class="form-group">
-                        <label for="direccion-envio">Dirección</label>
-                        <input type="text" id="direccion-envio" placeholder="Ingresa tu dirección">
-                    </div>
-                    <div class="form-group">
-                        <label for="ciudad-envio">Ciudad</label>
-                        <input type="text" id="ciudad-envio" placeholder="Ingresa tu ciudad">
-                    </div>
-                    <div class="form-group">
-                        <label for="email-envio">Email</label>
-                        <input type="email" id="email-envio" placeholder="Ingresa tu correo electrónico">
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono-envio">Teléfono</label>
-                        <input type="tel" id="telefono-envio" placeholder="Ingresa tu teléfono">
-                    </div>
-                </form>
+            <div class="form-group">
+                <p><strong>Email:</strong> <span th:text="${session.usuario.correo}"></span></p>
+            </div>
+            <h3>Seleccione el método de envío que le corresponda</h3>
+            <!-- Métodos de envío -->
+            <div class="payment-option">
+                <input type="radio" id="envio-local" name="metodo-envio" value="local" onclick="handleEnvioChange()">
+                <label for="envio-local">Envío Local</label>
+            </div>
+            <div class="payment-option">
+                <input type="radio" id="envio-provincial" name="metodo-envio" value="provincial" onclick="handleEnvioChange()">
+                <label for="envio-provincial">Envío Provincial</label>
+            </div>
+            <div class="payment-option">
+                <input type="radio" id="envio-nacional" name="metodo-envio" value="nacional" onclick="handleEnvioChange()">
+                <label for="envio-nacional">Envío Nacional</label>
+            </div>
+            <!-- Campos editables -->
+            <div class="form-group">
+                <label for="direccion-envio">Dirección</label>
+                <input type="text" id="direccion-envio" placeholder="Ingresa tu dirección" disabled>
+            </div>
+            <div class="form-group">
+                <label for="ciudad-envio">Ciudad</label>
+                <input type="text" id="ciudad-envio" placeholder="Ingresa tu ciudad" disabled>
+            </div>
+            <div class="form-group">
+                <label for="provincia-envio">Provincia</label>
+                <input type="text" id="provincia-envio" placeholder="Ingresa tu provincia" disabled>
+            </div>
+        </div>
+        <!-- Contenedor Métodos de Pago -->
+        <div class="form-section" style="text-align: center;">
+            <h2>Métodos de Pago</h2>
+            <div class="payment-option">
+                <input type="radio" id="pago-efectivo" name="metodo-pago" value="pago">
+                <label for="pago-efectivo">Pago con Mercado Pago</label>
+            </div>
+            <div class="payment-option">
+                <input type="radio" id="pago-tarjeta" name="metodo-pago" value="tarjeta">
+                <label for="pago-tarjeta">Pago con Tarjeta</label>
+            </div>
+            <div class="payment-option">
+                <input type="radio" id="pago-transferencia" name="metodo-pago" value="transferencia">
+                <label for="pago-transferencia">Pago con Transferencia Bancaria</label>
             </div>
         </div>
 
-        <div class="order-summary">
-            <!-- Resumen del pedido -->
-            <div class="order-details">
-                <h2>Tu Pedido</h2>
-                <ul>
-                    <li>
-                        <span>Producto 1:</span>
-                        <span>Descripción breve del producto</span>
-                        <span>Cantidad: 2</span>
-                    </li>
-                    <li>
-                        <span>Producto 2:</span>
-                        <span>Descripción breve del producto</span>
-                        <span>Cantidad: 1</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Totales -->
-            <div class="cart-totals">
-                <h2>Totales del Carrito</h2>
-                <p>Subtotal: <span>$186.06</span></p>
-                <p>Envío: <span>$0.00</span></p>
-                <p>Total: <span>$186.06</span></p>
-                <h3>Opciones de Pago:</h3>
-                <form>
-                    <label class="payment-option">
-                        <input type="radio" name="pago" value="transferencia">
-                        Transferencia Bancaria
-                    </label>
-                    <br>
-                    <label class="payment-option">
-                        <input type="radio" name="pago" value="tarjeta">
-                        Pago con Tarjeta
-                    </label>
-                    <br>
-                    <label class="payment-option">
-                        <input type="radio" name="pago" value="mercado pago">
-                        Mercado Pago
-                    </label>
-                </form>
-                <div class="botones">
-                    <button class="btn-realizar-pedido">Realizar Pedido</button>
-                    <button class="btn-cancelar">Cancelar</button>
-                </div>
-            </div>
+        <!-- Botones -->
+        <div class="botones">
+            <button class="btn-realizar-pedido" th:onclick="validarFormulario()">Realizar Pedido</button>
+            <button class="btn-cancelar" >
+                <a href="/carrito" class="nav-link">Cancelar</a>
+            </button>
         </div>
     </div>
-    <footer>
-        <p>&copy; 2024 Tienda Ecológica. Todos los derechos reservados.</p>
-        <a href="#">Política de privacidad</a> | <a href="#">Términos y condiciones</a>
-    </footer>
+
+    <script>
+    function handleEnvioChange() {
+        const envioLocal = document.getElementById('envio-local').checked;
+        const envioProvincial = document.getElementById('envio-provincial').checked;
+        const envioNacional = document.getElementById('envio-nacional').checked;
+
+        const direccion = document.getElementById('direccion-envio');
+        const ciudad = document.getElementById('ciudad-envio');
+        const provincia = document.getElementById('provincia-envio');
+
+        // Limpiar campos al cambiar método de envío
+        direccion.value = '';
+        ciudad.value = '';
+        provincia.value = '';
+
+        direccion.disabled = !envioLocal && !envioProvincial && !envioNacional;
+        ciudad.disabled = !envioProvincial && !envioNacional;
+        provincia.disabled = !envioNacional;
+
+        if (envioLocal) {
+            ciudad.disabled = true;
+            provincia.disabled = true;
+        } else if (envioProvincial) {
+            provincia.disabled = true;
+        }
+    }
+
+    function validarTexto(input) {
+        const regex = /^[a-zA-Z0-9\s]*$/;
+        const invalidChars = /[^a-zA-Z0-9\s]/g;
+        if (!regex.test(input.value)) {
+            input.value = input.value.replace(invalidChars, '');
+            mostrarAlerta("Solo se permiten letras y números.");
+        }
+    }
+
+    function validarCampos() {
+        const direccion = document.getElementById('direccion-envio').value.trim();
+        const ciudad = document.getElementById('ciudad-envio').value.trim();
+        const provincia = document.getElementById('provincia-envio').value.trim();
+        const regex = /^[a-zA-Z0-9\s]+$/;
+
+        if ((direccion && !regex.test(direccion)) || (ciudad && !regex.test(ciudad)) || (provincia && !regex.test(provincia))) {
+            mostrarAlerta("Los campos de texto solo pueden contener letras y números.");
+            return false;
+        }
+        return true;
+    }
+
+    function validarFormulario() {
+        const envioLocal = document.getElementById('envio-local').checked;
+        const envioProvincial = document.getElementById('envio-provincial').checked;
+        const envioNacional = document.getElementById('envio-nacional').checked;
+        const metodoPago = document.querySelector('input[name="metodo-pago"]:checked')?.value;
+        const metodoEnvio = document.querySelector('input[name="metodo-envio"]:checked')?.value;
+
+        const direccion = document.getElementById('direccion-envio').value.trim();
+        const ciudad = document.getElementById('ciudad-envio').value.trim();
+        const provincia = document.getElementById('provincia-envio').value.trim();
+
+        if (!envioLocal && !envioProvincial && !envioNacional) {
+            mostrarAlerta('Por favor, seleccione un método de envío.');
+            return;
+        }
+
+        if (!metodoPago) {
+            mostrarAlerta('Por favor, seleccione un método de pago.');
+            return;
+        }
+
+        if (envioLocal && direccion === '') {
+            mostrarAlerta('Por favor, complete la dirección.');
+            return;
+        }
+
+        if (envioProvincial && (direccion === '' || ciudad === '')) {
+            mostrarAlerta('Por favor, complete la dirección y la ciudad.');
+            return;
+        }
+
+        if (envioNacional && (direccion === '' || ciudad === '' || provincia === '')) {
+            mostrarAlerta('Por favor, complete todos los campos de envío.');
+            return;
+        }
+
+        if (!validarCampos()) {
+            return;
+        }
+
+        fetch('/orden/realizar', {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ direccion: direccion, ciudad: ciudad, provincia: provincia, metodoPago: metodoPago, metodoEnvio: metodoEnvio})
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("Pedido realizado correctamente.");
+                window.location.href = '/inicio'; // Redirige después de una respuesta exitosa
+            } else {
+                response.text().then(errorMessage => {
+                mostrarAlerta("Error al realizar el pedido: " + errorMessage);
+            });
+            }
+        })
+        .catch(error => {
+            mostrarAlerta("Ocurrió un error al comunicarse con el servidor: " + error.message);
+        });
+    }
+
+    function mostrarAlerta(mensaje) {
+        const alertDiv = document.createElement('div');
+        alertDiv.style.position = 'fixed';
+        alertDiv.style.top = '50%';
+        alertDiv.style.left = '50%';
+        alertDiv.style.transform = 'translate(-50%, -50%)';
+        alertDiv.style.backgroundColor = '#fff';
+        alertDiv.style.color = '#000';
+        alertDiv.style.padding = '20px';
+        alertDiv.style.border = '2px solid #000';
+        alertDiv.style.borderRadius = '5px';
+        alertDiv.style.zIndex = '1000';
+        alertDiv.innerText = mensaje;
+
+        const closeButton = document.createElement('button');
+        closeButton.style.marginTop = '10px';
+        closeButton.innerText = 'Cerrar';
+        closeButton.onclick = function() {
+            document.body.removeChild(alertDiv);
+        };
+
+        alertDiv.appendChild(closeButton);
+        document.body.appendChild(alertDiv);
+    }
+</script>
+
+
+
+
 </body>
 
 </html>

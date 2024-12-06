@@ -25,37 +25,37 @@ public class Producto implements ComponenteProducto{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
     @Column(name = "id")
-    private String idProducto;
+    private int idProducto;
+
     @NotBlank
-    @Size(min = 10, max = 20)
+    @Size(min = 10, max = 50)
     @Column(nullable = false, length = 20)
     private String nombre;
-    @Size(min = 10, max = 50)
+
+    @Size(min = 10, max = 150)
     @Column(nullable = false, length = 50)
     private String descripcion;
+
     @NotNull
+    @Column(nullable = false)
     private double precio;
+
     @NotNull
+    @Column(nullable = false)
     private double peso;
 
     @ManyToOne
     @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria", nullable = false)
     private Categoria categoria;
 
-    public Producto(String nombre, String descripcion, double precio, double peso){
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.peso = peso;
-    }
+    @NotBlank
+    @Column(nullable = false)
+    private String imgProducto;
 
-    public String getId() {
-        return idProducto;
-    }
+    @NotNull
+    @Column(nullable = false)
+    private int cantDisp;
 
-    public void setId(String id) {
-        this.idProducto = idProducto;
-    }
 
     @Override
     public double getPrecio(){
@@ -69,10 +69,6 @@ public class Producto implements ComponenteProducto{
         return x;
     }
 
-    @Override
-    public double aplicarDescuento(double descuento){
-        return descuento;
-    }
     public Categoria getCategoria() {
         return categoria;
     }

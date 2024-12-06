@@ -28,4 +28,8 @@ public class DescuentoVolumen extends DescuentoDecorator{
         }
     }
 
+    public double getDescuento(){
+        return ((precioFinal.getPrecio() * descuento) / 100);
+    }
+
 }

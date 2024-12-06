@@ -7,7 +7,7 @@
     <title>Carrito de Compras</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -125,12 +125,15 @@
         }
 
         header {
-            background-image: url('./image/imagenxd.jpeg');
+            background-image: url('/imagenes/pngtree-rustic-bamboo-fence-panels-and-textural-patterns-image_13698878.jpg');
             background-size: cover;
             background-position: center;
             height: 220px;
+            /* Ajusta este valor a la altura que desees */
             margin-bottom: 20px;
+            /* Agrega espacio debajo del header */
         }
+
 
         footer {
             background-color: #333;
@@ -151,6 +154,50 @@
             text-decoration: underline;
         }
     </style>
+    <script>
+        function confirmarEliminacion(nombreProducto) {
+            const prod = nombreProducto.getAttribute('data-prods');
+            if (confirm(`¿Seguro que quiere eliminar todos los "${prod}" del carrito?`)) {
+                fetch('/carrito/eliminar', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prod: prod })
+                }).then(response => {
+                    if (response.ok) {
+                        location.reload(); // Recargar la página
+                    } else {
+                        alert('Error al eliminar el producto');
+                    }
+                });
+            }
+        }
+
+        function verificarCarrito() {
+            fetch('/carrito/verificar', {
+                method: "POST",
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert("Rellene los datos a continuacion");
+                        window.location.href = '/orden';
+                    }
+                    else {
+                        alert("El carrito está vacío");
+                    }
+                })
+        }
+        function validarCantidad(inputElement) {
+            const cantidadSolicitada = inputElement.value;
+            const stockDisponible = inputElement.getAttribute('data-stock');
+            const nombreProducto = inputElement.closest('tr').querySelector('.product-id').innerText;
+
+            if (cantidadSolicitada > stockDisponible) {
+                alert(`No puedes agregar más de ${stockDisponible} unidades del producto "${nombreProducto}".`);
+                inputElement.value = stockDisponible; // Restablecer al máximo disponible
+            }
+        }
+
+    </script>
 
 </head>
 
@@ -161,11 +208,18 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="/inicio">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="/catalogo">Catálogo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Categorías</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contactos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
                 </ul>
-                <a class="btn btn-outline-success" href="/sesion" role="button">Iniciar sesión</a>
-                <a class="btn btn-outline-success" href="#" role="button">Registrarse</a>
+                <!-- Mostrar saludo y botón según estado de sesión -->
+                <div th:if="${session.usuario != null}">
+                    <span th:text="'Hola, ' + ${session.usuario.nombreCompleto} + '!'" class="me-2"></span>
+                    <a class="btn btn-outline-danger" href="/cerrar-sesion" id="btn-cerrar-sesion">Cerrar sesión</a>
+                </div>
+
+                <div th:if="${session.usuario == null}">
+                    <a class="btn btn-outline-success me-2" href="sesion" aria-label="Iniciar sesión">Iniciar sesión</a>
+                    <a class="btn btn-outline-success" href="registro" aria-label="Registrarse">Registrarse</a>
+                </div>
             </div>
         </nav>
     </header>
@@ -178,53 +232,43 @@
                     <th>Precio</th>
                     <th>Cantidad</th>
                     <th>Subtotal</th>
+                    <th>Descuento x Cantidad</th>
+                    <th>Descuento x Temporada</th>
+                    <th>Total</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody th:each="producto: ${compras}">
                 <tr>
                     <td>
                         <div class="product-details">
-                            <span class="product-id">Producto 1:</span>
-                            <span class="product-name">Lowepro ProTactic 350 AW</span>
+                            <span th:class="product-id" th:text="${producto['nombre']}">Producto 1:</span>
                         </div>
                     </td>
-                    <td>$199.95</td>
-                    <td><input type="number" value="1" min="1"></td>
-                    <td>$199.95</td>
-                </tr>
-                <tr>
+                    <td th:text="${producto['precio']}">Precio</td>
                     <td>
-                        <div class="product-details">
-                            <span class="product-id">Producto 2:</span>
-                            <span class="product-name">Lowepro Pro Roller x300 AW</span>
-                        </div>
+                        <input type="number" th:value="${producto['cantidad']}" min="1"
+                            th:data-idProducto="${producto['idProducto']}"
+                            th:data-stock="${producto['stockDisponible']}" class="cantidad-carrito"
+                            onchange="validarCantidad(this)">
                     </td>
-                    <td>$499.95</td>
-                    <td><input type="number" value="1" min="1"></td>
-                    <td>$499.95</td>
-                </tr>
-                <tr>
+                    <td th:text="${producto['subtotal']}">Subtotal</td>
+                    <td th:text="${producto['descVolumen']}">Descuento x Cantidad</td>
+                    <td th:text="${producto['descTemporada']}">Descuento x Temporada</td>
+                    <td th:text="${producto['total']}">Total</td>
                     <td>
-                        <div class="product-details">
-                            <span class="product-id">Producto 3:</span>
-                            <span class="product-name">Lowepro Slingshot Edge 250 AW</span>
-                        </div>
+                        <button class="btn btn-danger" th:data-prods="${producto['nombre']}"
+                            th:onclick="confirmarEliminacion(this)">Eliminar</button>
                     </td>
-                    <td>$109.95</td>
-                    <td><input type="number" value="1" min="1"></td>
-                    <td>$109.95</td>
                 </tr>
             </tbody>
         </table>
 
-        <div class="cart-actions">
-            <button class="update-cart">Actualizar carrito</button>
-        </div>
-
         <div class="cart-totals">
-            <p>Subtotal: <span>$809.85</span></p>
-            <p>Total: <span>$809.85</span></p>
-            <button class="checkout-btn">Proceder al pago</button>
+            <p>Subtotal: <span id="cart-subtotal" th:text="${subtotalCarrito}">Subtotal</span></p>
+            <p>Total: <span id="cart-total" th:text="${totalCarrito}">Total</span></p>
+            <button class="checkout-btn" th:onclick="verificarCarrito()">
+                Proceder al pago
+            </button>
         </div>
     </div>
     <footer>

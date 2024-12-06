@@ -2,10 +2,9 @@ package com.integrador.proyecto.repositorio;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import modelo.Inventario;
+import modelo.PaqueteProducto;
 
 @Repository
-public interface InventarioRepositorio extends JpaRepository<Inventario, String>{
+public interface PaqueteProductoRepositorio extends JpaRepository<PaqueteProducto, Integer>{
 
 }
