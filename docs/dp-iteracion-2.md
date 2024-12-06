@@ -131,7 +131,8 @@ Historias de usuario que completaremos en esta segunda iteración:
 
 **Prioridad**: Alta
 
-**Criterios de aceptación**: 
+**Criterios de aceptación**:
+
          - El carrito debe permitir agregar, eliminar y modificar la cantidad de productos.
          - El carrito debe calcular automáticamente el total de la compra en base a la cantidad y precio de los productos.
          
@@ -146,6 +147,7 @@ Historias de usuario que completaremos en esta segunda iteración:
 **Prioridad**: Baja
 
 **Criterios de aceptación**: 
+
       - Los productos deben clasificarse en categorías como alimentos, ropa, productos reutilizables, etc.
       - El sistema debe permitir buscar y filtrar productos dentro de cada categoría.
       - Las categorías deben ser configurables por el gerente, permitiendo añadir o quitar categorías.
@@ -161,6 +163,7 @@ Historias de usuario que completaremos en esta segunda iteración:
 **Prioridad**: Media
 
 **Criterios de aceptación**: 
+
       - El sistema debe mostrar el descuento aplicado en el carrito de compras junto al precio original(subtotal) y el precio descontado(total).
       - El sistema debe aplicar automáticamente los descuentos configurados a los productos en el carrito.
       - Los descuentos deben aplicarse de acuerdo con reglas preconfiguradas, como porcentaje o monto fijo.
@@ -177,6 +180,7 @@ Historias de usuario que completaremos en esta segunda iteración:
 **Prioridad**: Alta
 
 **Criterios de aceptación**:
+
       - El sistema debe ofrecer opciones de paquetes preconfigurados con precios especiales.
       - El sistema debe permitir configurar distintos tipos de paquetes con diferentes combinaciones de productos.
       - El sistema debe permitir seleccionar la cantidad de paquetes a comprar.
@@ -193,6 +197,7 @@ Historias de usuario que completaremos en esta segunda iteración:
 **Prioridad**: Media
 
 **Criterios de aceptación**: 
+
       - El sistema debe aceptar realizar pagos con tarjetas de crédito, débito y transferencias.
       - El sistema debe confirmar la transacción exitosa o fallida en tiempo real.
       
@@ -207,6 +212,7 @@ Historias de usuario que completaremos en esta segunda iteración:
 **Prioridad**: Alta
 
 **Criterios de aceptación**:
+
       - El sistema debe permitir seleccionar entre Envío Local, Envío Provincial y Envío Nacional.
       - El sistema debe validar que todos los campos habilitados estén completos antes de finalizar la compra.
       
