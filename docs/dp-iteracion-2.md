@@ -74,9 +74,9 @@ Objetivo: El cliente desea acceder a su cuenta en la plataforma.
 Flujo Principal:
 1.	El cliente accede a la pantalla de inicio de sesión desde la página principal de la tienda, o bien es redireccionado a esta pantalla si desea realizar una compra sin haber iniciado sesión previamente.
 2.	El cliente ingresa su dirección de correo electrónico en el campo correspondiente.
-   - El sistema valida que el formato del correo electrónico sea correcto.
+      - El sistema valida que el formato del correo electrónico sea correcto.
 3.	El cliente ingresa su contraseña en el campo correspondiente.
-     - El sistema enmascara la contraseña para garantizar la privacidad del cliente.
+      - El sistema enmascara la contraseña para garantizar la privacidad del cliente.
 4.	El cliente hace clic en el botón "ACCEDER".
 5.	El sistema valida las credenciales del cliente.
     - Si las credenciales son correctas, el cliente es redirigido a la pantalla de inicio si ha ingresado desde allí, o a la pantalla de orden de compra si fue redireccionado.
