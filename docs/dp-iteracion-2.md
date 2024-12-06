@@ -34,24 +34,24 @@ Flujo Principal:
 1.	El cliente accede a la pantalla de "Finalizar Compra" desde el carrito de compras.
 2.	El sistema muestra por pantalla los datos no editables del cliente, incluyendo Nombre y Apellido, Email y Teléfono.
 3.	El cliente debe seleccionar uno de los métodos de envío disponibles:
-   - Envío Local
-   - Envío Provincial
-   - Envío Nacional
+      - Envío Local
+      - Envío Provincial
+      - Envío Nacional
 4.	Dependiendo del método de envío seleccionado, los campos de dirección se habilitan o deshabilitan:
-   - Envío Local: Solo el campo de "Dirección" se habilita.
-   - Envío Provincial: Los campos de "Dirección" y "Ciudad" se habilitan, mientras que el campo de "Provincia" se deshabilita y limpia.
-   - Envío Nacional: Todos los campos (Dirección, Ciudad y Provincia) se habilitan.
+      - Envío Local: Solo el campo de "Dirección" se habilita.
+      - Envío Provincial: Los campos de "Dirección" y "Ciudad" se habilitan, mientras que el campo de "Provincia" se deshabilita y limpia.
+      - Envío Nacional: Todos los campos (Dirección, Ciudad y Provincia) se habilitan.
      
 Cualquier selección del método de envío limpia los campos de dirección.
 5.	El cliente debe seleccionar uno de los métodos de pago disponibles:
-   - Pago con Mercado Pago
-   - Pago con Tarjeta
-   - Pago con Transferencia Bancaria
+      - Pago con Mercado Pago
+      - Pago con Tarjeta
+      - Pago con Transferencia Bancaria
 6.	Al hacer clic en "Realizar Pedido", el sistema valida que:
-   - Se haya seleccionado un método de envío.
-   - Se haya seleccionado un método de pago.
-   - Los campos habilitados de dirección (dependiendo del método de envío) estén completos.
-   - Los campos de dirección no contengan caracteres especiales, solo letras y números.
+      - Se haya seleccionado un método de envío.
+      - Se haya seleccionado un método de pago.
+      - Los campos habilitados de dirección (dependiendo del método de envío) estén completos.
+      - Los campos de dirección no contengan caracteres especiales, solo letras y números.
 7.	Si todas las validaciones son satisfactorias, se muestra un mensaje de éxito y se completa el pedido.
 
 Flujos Alternativos:
@@ -79,8 +79,8 @@ Flujo Principal:
       - El sistema enmascara la contraseña para garantizar la privacidad del cliente.
 4.	El cliente hace clic en el botón "ACCEDER".
 5.	El sistema valida las credenciales del cliente.
-    - Si las credenciales son correctas, el cliente es redirigido a la pantalla de inicio si ha ingresado desde allí, o a la pantalla de orden de compra si fue redireccionado.
-    - Si las credenciales son incorrectas, el sistema muestra un mensaje de error indicando que el correo electrónico o la contraseña son incorrectos.
+       - Si las credenciales son correctas, el cliente es redirigido a la pantalla de inicio si ha ingresado desde allí, o a la pantalla de orden de compra si fue redireccionado.
+       - Si las credenciales son incorrectas, el sistema muestra un mensaje de error indicando que el correo electrónico o la contraseña son incorrectos.
 
 Flujos Alternativos:
 - F1: Si el formato del correo electrónico ingresado es incorrecto, el sistema muestra un mensaje de error indicando que el formato del correo electrónico no es válido.
@@ -101,7 +101,7 @@ Flujo Principal:
 1.	El cliente accede a la pantalla de creación de cuenta.
 2.	El cliente ingresa su nombre en el campo "Nombre" y luego ingresa su apellido en el campo "Apellido".
 3.	El cliente ingresa su correo electrónico en el campo "Correo".
-   - El sistema valida que el formato del correo electrónico sea correcto.
+      - El sistema valida que el formato del correo electrónico sea correcto.
 4.	El cliente ingresa un nombre de usuario en el campo "Username" y luego ingresa una contraseña en el campo "Password".
 o	El sistema enmascara la contraseña para garantizar la privacidad del usuario.
 5.	El cliente hace clic en el botón "GUARDAR".
@@ -125,56 +125,85 @@ Postcondiciones:
 Historias de usuario que completaremos en esta segunda iteración:
 
 1.	**COMO** cliente **QUIERO** disponer de un carrito de compras **PARA** la organización de mis compras.
-- **Tipo**: Funcional
-- **Prioridad**: Alta
-- **Criterios de aceptación**: 
-      - El carrito debe permitir agregar, eliminar y modificar la cantidad de productos.
-      - El carrito debe calcular automáticamente el total de la compra en base a la cantidad y precio de los productos.
-- **Impacto**: Mejora la conveniencia de los clientes durante el proceso de compra.
+   
+**Tipo**: Funcional
 
-2.	COMO cliente QUIERO que los productos se separen por categorías PARA poder encontrar de manera rápida y sencilla lo que busco en la tienda online.
-•	Tipo: Funcional
-•	Prioridad: Baja
-•	Criterios de aceptación: 
-o	Los productos deben clasificarse en categorías como alimentos, ropa, productos reutilizables, etc.
-o	El sistema debe permitir buscar y filtrar productos dentro de cada categoría.
-o	Las categorías deben ser configurables por el gerente, permitiendo añadir o quitar categorías.
-•	Impacto: Facilita la navegación en la tienda y mejora la experiencia de compra.
+**Prioridad**: Alta
 
-3.	COMO gerente QUIERO que la aplicación de descuentos a productos esté automatizada PARA optimizar el proceso de cobro.
-•	Tipo: Funcional
-•	Prioridad: Media
-•	Criterios de aceptación: 
-o	El sistema debe mostrar el descuento aplicado en el carrito de compras junto al precio original(subtotal) y el precio descontado(total).
-o	El sistema debe aplicar automáticamente los descuentos configurados a los productos en el carrito.
-o	Los descuentos deben aplicarse de acuerdo con reglas preconfiguradas, como porcentaje o monto fijo.
-o	El gerente debe poder programar y administrar descuentos por temporadas.
-•	Impacto: Optimiza el proceso de ventas y facilita la gestión de promociones.
+**Criterios de aceptación**: 
+         - El carrito debe permitir agregar, eliminar y modificar la cantidad de productos.
+         - El carrito debe calcular automáticamente el total de la compra en base a la cantidad y precio de los productos.
+         
+**Impacto**: Mejora la conveniencia de los clientes durante el proceso de compra.
 
-4.	COMO gerente QUIERO posibilitar la venta de productos por paquetes PARA facilitar la adquisición de mayor cantidad de productos para quien desee hacerlo.
-•	Tipo: Funcional
-•	Prioridad: Alta
-•	Criterios de aceptación:
-•	El sistema debe ofrecer opciones de paquetes preconfigurados con precios especiales.
-•	El sistema debe permitir configurar distintos tipos de paquetes con diferentes combinaciones de productos.
-•	El sistema debe permitir seleccionar la cantidad de paquetes a comprar.
-•	Los paquetes deben poder añadirse al carrito y ser gestionados como una única unidad.
-•	Impacto: Facilita compras al por mayor y fomenta ventas más grandes.
-5.	COMO usuario QUIERO disponer de múltiples formas de pago PARA la adquisición de productos. (Se concluirá su implementación)
-•	Tipo: Funcional
-•	Prioridad: Media
-•	Criterios de aceptación: 
-o	El sistema debe aceptar realizar pagos con tarjetas de crédito, débito y transferencias.
-o	El sistema debe confirmar la transacción exitosa o fallida en tiempo real.
-•	Impacto: Incrementa la accesibilidad y conveniencia para clientes de distintos perfiles.
 
-6.	COMO usuario QUIERO disponer de múltiples opciones de envío PARA poder seleccionar la que más me convenga según mi ubicación.
-•	Tipo: Funcional
-•	Prioridad: Alta
-•	Criterios de aceptación:
-o	El sistema debe permitir seleccionar entre Envío Local, Envío Provincial y Envío Nacional.
-o	El sistema debe validar que todos los campos habilitados estén completos antes de finalizar la compra.
-•	Impacto: Incrementa la flexibilidad y conveniencia para los clientes al proporcionarles opciones de envío que se ajusten a sus necesidades y ubicación geográfica.
+2.	**COMO** cliente **QUIERO** que los productos se separen por categorías **PARA** poder encontrar de manera rápida y sencilla lo que busco en la tienda online.
+   
+**Tipo**: Funcional
+
+**Prioridad**: Baja
+
+**Criterios de aceptación**: 
+      - Los productos deben clasificarse en categorías como alimentos, ropa, productos reutilizables, etc.
+      - El sistema debe permitir buscar y filtrar productos dentro de cada categoría.
+      - Las categorías deben ser configurables por el gerente, permitiendo añadir o quitar categorías.
+      - 
+**Impacto**: Facilita la navegación en la tienda y mejora la experiencia de compra.
+
+
+3.	**COMO** gerente **QUIERO** que la aplicación de descuentos a productos esté automatizada **PARA** optimizar el proceso de cobro.
+   
+**Tipo**: Funcional
+
+**Prioridad**: Media
+
+**Criterios de aceptación**: 
+      - El sistema debe mostrar el descuento aplicado en el carrito de compras junto al precio original(subtotal) y el precio descontado(total).
+      - El sistema debe aplicar automáticamente los descuentos configurados a los productos en el carrito.
+      - Los descuentos deben aplicarse de acuerdo con reglas preconfiguradas, como porcentaje o monto fijo.
+      - El gerente debe poder programar y administrar descuentos por temporadas.
+      
+**Impacto**: Optimiza el proceso de ventas y facilita la gestión de promociones.
+
+4.	**COMO** gerente **QUIERO** posibilitar la venta de productos por paquetes **PARA** facilitar la adquisición de mayor cantidad de productos para quien desee hacerlo.
+   
+**Tipo**: Funcional
+
+**Prioridad**: Alta
+
+**Criterios de aceptación**:
+      - El sistema debe ofrecer opciones de paquetes preconfigurados con precios especiales.
+      - El sistema debe permitir configurar distintos tipos de paquetes con diferentes combinaciones de productos.
+      - El sistema debe permitir seleccionar la cantidad de paquetes a comprar.
+      - Los paquetes deben poder añadirse al carrito y ser gestionados como una única unidad.
+      
+**Impacto**: Facilita compras al por mayor y fomenta ventas más grandes.
+
+
+5.	**COMO** usuario **QUIERO** disponer de múltiples formas de pago **PARA** la adquisición de productos. (Se concluirá su implementación)
+   
+**Tipo**: Funcional
+
+**Prioridad**: Media
+
+**Criterios de aceptación**: 
+      - El sistema debe aceptar realizar pagos con tarjetas de crédito, débito y transferencias.
+      - El sistema debe confirmar la transacción exitosa o fallida en tiempo real.
+      
+**Impacto**: Incrementa la accesibilidad y conveniencia para clientes de distintos perfiles.
+
+10.	**COMO** usuario **QUIERO** disponer de múltiples opciones de envío **PARA** poder seleccionar la que más me convenga según mi ubicación.
+    
+**Tipo**: Funcional
+
+**Prioridad**: Alta
+
+**Criterios de aceptación**:
+      - El sistema debe permitir seleccionar entre Envío Local, Envío Provincial y Envío Nacional.
+      - El sistema debe validar que todos los campos habilitados estén completos antes de finalizar la compra.
+      
+**Impacto**: Incrementa la flexibilidad y conveniencia para los clientes al proporcionarles opciones de envío que se ajusten a sus necesidades y ubicación geográfica.
+
 
 # Tareas
 
