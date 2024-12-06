@@ -7,6 +7,7 @@ Después de haber liberado la primera iteración, nuestra primera tarea consisti
 3.	***Backend***: Consistió en la programación del resto de funciones que habían quedado fuera de la primera iteración, la refactorización de algunas partes del código de las funciones ya implementadas y la creación de pruebas unitarias.
    
 Para mantener la cohesión, todos los grupos trabajamos en constante comunicación, asegurando la integración fluida de cada componente. En cuanto a las tareas específicas:
+
 •	**Rediseño del Diagrama de Clases y aplicación en el Modelo**: Tras una reunión conjunta con el equipo, Lautaro Fernández se encargó de rediseñar el diagrama de clases mientras que Hernán Lovera se responsabilizó de aplicar los cambios necesarios al modelo de la aplicación.
 •	**Diseño de Pantallas**: Nicolás Sosa y Lautaro Fernández se encargaron de crear el resto de pantallas faltantes para las funciones a implementar y realizar las validaciones en aquellas pantallas que lo requerían, mientras que los demás miembros del equipo que estaban encargados del Backend realizaron ajustes en algunas de las pantallas ya existentes.
 •	**Backend**: Hernán Lovera, Bianca Eitner y Nicolas Sosa fueron los encargados de realizar la refactorización de las funciones existentes, así como de crear aquellas que eran faltantes.
