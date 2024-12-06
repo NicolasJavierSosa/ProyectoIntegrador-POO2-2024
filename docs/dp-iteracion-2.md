@@ -1,4 +1,4 @@
-Trabajo en equipo
+#Trabajo en equipo
 
 Después de haber liberado la primera iteración, nuestra primera tarea consistió en volver a evaluar el modelado de las clases presentes en el sistema, esto con la finalidad de tener una base sólida y homogénea sobre la cual puedan trabajar todos los miembros del equipo. Posteriormente, el enfoque fue el siguiente:
 
@@ -12,13 +12,15 @@ Para mantener la cohesión, todos los grupos trabajamos en constante comunicaci�
 •	Backend: Hernán Lovera, Bianca Eitner y Nicolas Sosa fueron los encargados de realizar la refactorización de las funciones existentes, así como de crear aquellas que eran faltantes.
 •	Documentación: Lautaro Fernández fue el encargado de realizar este documento mientras que Máximo Gigena fue responsable de realizar la retrospectiva y la documentación del código restante con Javadoc.
 
-Diseño OO
+#Diseño OO
+
 Para esta iteración el diagrama de clases se encuentra en la carpeta de imagenes como "DDC2.0". Para el diseño de este diagrama de clases utilizamos como base 3 patrones de diseños los cuales se pueden observar enmarcados en la imagen, el patrón COMPOSITE enmarcado en verde, DECORATOR enmarcado en anaranjado y STRATEGY en celeste.
 1.	Composite: En este patrón utilizamos como clase principal a la interfaz ComponenteProducto que define el comportamiento común para los objetos que pueden ser tratados de manera uniforme en una jerarquía de productos y paquetes. La clase Producto representa un artículo individual en la tienda, implementa la interfaz ComponenteProducto y proporciona una implementación específica de los métodos definidos, como el cálculo del precio y del peso de un producto individual. Por otro lado, la clase Paquete también implementa ComponenteProducto, permitiendo agrupar varios productos (o incluso otros paquetes) en una sola unidad.
 2.	Decorator: Tiene como interfaz principal Descuento que define el método aplicarDescuento() para aplicar diferentes tipos de descuentos a un producto o paquete. La clase DescuentoDecorator actúa como una clase base decoradora que sirve de intermediaria para aplicar descuentos específicos de manera flexible, Ademas hereda a las clases DescuentoBasico, DescuentoTemporada y DescuentoVolumen
 3.	Strategy: La interfaces claves de este patrón son: Pago y Envio, al tener este enfoque aseguramos que el sistema sea flexible, ya que permite cambiar o agregar fácilmente métodos de pago y opciones de envío sin afectar otras partes del sistema, promoviendo la extensibilidad y manteniendo un diseño limpio.
    
-Wireframe y caso de uso
+#Wireframe y caso de uso
+
 Se realizaron una serie de bocetos simples de cómo se vería la interfazpara las funciones restantes, acompañado de casos de uso para describir cómo interactúa el usuario con la aplicación. Las imágenes de los wireframes para esta iteración se encuentran en la carpeta wireframes extendidos. A continuación, se detallan los casos de uso para las pantallas diseñadas.
 
 Casos de Uso Extendidos
@@ -114,7 +116,8 @@ Postcondiciones:
 •	El usuario tendrá una cuenta creada y podrá iniciar sesión en el sistema.
 
 
-Backlog de iteraciones
+#Backlog de iteraciones
+
 Historia de usuario que completaremos en esta segunda iteración:
 1.	COMO cliente QUIERO disponer de un carrito de compras PARA la organización de mis compras.
 •	Tipo: Funcional
@@ -168,7 +171,8 @@ o	El sistema debe permitir seleccionar entre Envío Local, Envío Provincial y E
 o	El sistema debe validar que todos los campos habilitados estén completos antes de finalizar la compra.
 •	Impacto: Incrementa la flexibilidad y conveniencia para los clientes al proporcionarles opciones de envío que se ajusten a sus necesidades y ubicación geográfica.
 
-Tareas
+#Tareas
+
 1.	Realizar el rediseño de los diagramas necesarios (Diagrama de clases).
 2.	Adaptar el modelo.
 3.	Re - implementar la base de datos.
