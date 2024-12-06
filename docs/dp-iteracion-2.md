@@ -42,7 +42,8 @@ Flujo Principal:
       - Envío Provincial: Los campos de "Dirección" y "Ciudad" se habilitan, mientras que el campo de "Provincia" se deshabilita y limpia.
       - Envío Nacional: Todos los campos (Dirección, Ciudad y Provincia) se habilitan.
      
-Cualquier selección del método de envío limpia los campos de dirección.
+     Cualquier selección del método de envío limpia los campos de dirección.
+
 5.	El cliente debe seleccionar uno de los métodos de pago disponibles:
       - Pago con Mercado Pago
       - Pago con Tarjeta
@@ -137,6 +138,7 @@ Historias de usuario que completaremos en esta segunda iteración:
 **Impacto**: Mejora la conveniencia de los clientes durante el proceso de compra.
 
 
+
 2.	**COMO** cliente **QUIERO** que los productos se separen por categorías **PARA** poder encontrar de manera rápida y sencilla lo que busco en la tienda online.
    
 **Tipo**: Funcional
@@ -147,8 +149,9 @@ Historias de usuario que completaremos en esta segunda iteración:
       - Los productos deben clasificarse en categorías como alimentos, ropa, productos reutilizables, etc.
       - El sistema debe permitir buscar y filtrar productos dentro de cada categoría.
       - Las categorías deben ser configurables por el gerente, permitiendo añadir o quitar categorías.
-      - 
+      
 **Impacto**: Facilita la navegación en la tienda y mejora la experiencia de compra.
+
 
 
 3.	**COMO** gerente **QUIERO** que la aplicación de descuentos a productos esté automatizada **PARA** optimizar el proceso de cobro.
@@ -165,6 +168,8 @@ Historias de usuario que completaremos en esta segunda iteración:
       
 **Impacto**: Optimiza el proceso de ventas y facilita la gestión de promociones.
 
+
+
 4.	**COMO** gerente **QUIERO** posibilitar la venta de productos por paquetes **PARA** facilitar la adquisición de mayor cantidad de productos para quien desee hacerlo.
    
 **Tipo**: Funcional
@@ -180,6 +185,7 @@ Historias de usuario que completaremos en esta segunda iteración:
 **Impacto**: Facilita compras al por mayor y fomenta ventas más grandes.
 
 
+
 5.	**COMO** usuario **QUIERO** disponer de múltiples formas de pago **PARA** la adquisición de productos. (Se concluirá su implementación)
    
 **Tipo**: Funcional
@@ -192,7 +198,9 @@ Historias de usuario que completaremos en esta segunda iteración:
       
 **Impacto**: Incrementa la accesibilidad y conveniencia para clientes de distintos perfiles.
 
-10.	**COMO** usuario **QUIERO** disponer de múltiples opciones de envío **PARA** poder seleccionar la que más me convenga según mi ubicación.
+
+
+6.	**COMO** usuario **QUIERO** disponer de múltiples opciones de envío **PARA** poder seleccionar la que más me convenga según mi ubicación.
     
 **Tipo**: Funcional
 
@@ -205,6 +213,7 @@ Historias de usuario que completaremos en esta segunda iteración:
 **Impacto**: Incrementa la flexibilidad y conveniencia para los clientes al proporcionarles opciones de envío que se ajusten a sus necesidades y ubicación geográfica.
 
 
+
 # Tareas
 
 1.	Realizar el rediseño de los diagramas necesarios (Diagrama de clases).
@@ -213,10 +222,10 @@ Historias de usuario que completaremos en esta segunda iteración:
 4.	Rediseñar las pantallas en base a las necesidades.
 5.	Hacer los diseños de las pantallas faltantes.
 6.	Implementar las funciones propuestas 
-o	Carrito de compras
-o	Filtrado por categoría de producto
-o	Aplicación automática de descuentos programados
-o	Venta de paquetes
+      - Carrito de compras
+      - Filtrado por categoría de producto
+      - Aplicación automática de descuentos programados
+      - Venta de paquetes
 7.	Implementación de los métodos de pago restantes y los métodos de envío.
 
 
