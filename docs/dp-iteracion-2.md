@@ -8,10 +8,10 @@ Después de haber liberado la primera iteración, nuestra primera tarea consisti
    
 Para mantener la cohesión, todos los grupos trabajamos en constante comunicación, asegurando la integración fluida de cada componente. En cuanto a las tareas específicas:
 
-•	**Rediseño del Diagrama de Clases y aplicación en el Modelo**: Tras una reunión conjunta con el equipo, Lautaro Fernández se encargó de rediseñar el diagrama de clases mientras que Hernán Lovera se responsabilizó de aplicar los cambios necesarios al modelo de la aplicación.
-•	**Diseño de Pantallas**: Nicolás Sosa y Lautaro Fernández se encargaron de crear el resto de pantallas faltantes para las funciones a implementar y realizar las validaciones en aquellas pantallas que lo requerían, mientras que los demás miembros del equipo que estaban encargados del Backend realizaron ajustes en algunas de las pantallas ya existentes.
-•	**Backend**: Hernán Lovera, Bianca Eitner y Nicolas Sosa fueron los encargados de realizar la refactorización de las funciones existentes, así como de crear aquellas que eran faltantes.
-•	**Documentación**: Lautaro Fernández fue el encargado de realizar este documento mientras que Máximo Gigena fue responsable de realizar la retrospectiva y la documentación del código restante con Javadoc.
+- **Rediseño del Diagrama de Clases y aplicación en el Modelo**: Tras una reunión conjunta con el equipo, Lautaro Fernández se encargó de rediseñar el diagrama de clases mientras que Hernán Lovera se responsabilizó de aplicar los cambios necesarios al modelo de la aplicación.
+- **Diseño de Pantallas**: Nicolás Sosa y Lautaro Fernández se encargaron de crear el resto de pantallas faltantes para las funciones a implementar y realizar las validaciones en aquellas pantallas que lo requerían, mientras que los demás miembros del equipo que estaban encargados del Backend realizaron ajustes en algunas de las pantallas ya existentes.
+- **Backend**: Hernán Lovera, Bianca Eitner y Nicolas Sosa fueron los encargados de realizar la refactorización de las funciones existentes, así como de crear aquellas que eran faltantes.
+- **Documentación**: Lautaro Fernández fue el encargado de realizar este documento mientras que Máximo Gigena fue responsable de realizar la retrospectiva y la documentación del código restante con Javadoc.
 
 # Diseño OO
 
@@ -30,39 +30,39 @@ Se realizaron una serie de bocetos simples de cómo se vería la interfazpara la
 Actor Primario: Cliente
 Objetivo: El cliente desea completar la compra de un producto específico o de productos seleccionados en el carrito.
 Flujo Principal:
-1.	- El cliente accede a la pantalla de "Finalizar Compra" desde el carrito de compras.
-2.	- El sistema muestra por pantalla los datos no editables del cliente, incluyendo Nombre y Apellido, Email y Teléfono.
-3.	- El cliente debe seleccionar uno de los métodos de envío disponibles:
-	Envío Local
-	Envío Provincial
-	Envío Nacional
-4.	-   Dependiendo del método de envío seleccionado, los campos de dirección se habilitan o deshabilitan:
-	Envío Local: Solo el campo de "Dirección" se habilita.
-	Envío Provincial: Los campos de "Dirección" y "Ciudad" se habilitan, mientras que el campo de "Provincia" se deshabilita y limpia.
-	Envío Nacional: Todos los campos (Dirección, Ciudad y Provincia) se habilitan.
-o	Cualquier selección del método de envío limpia los campos de dirección.
-5.	- El cliente debe seleccionar uno de los métodos de pago disponibles:
-	Pago con Mercado Pago
-	Pago con Tarjeta
-	Pago con Transferencia Bancaria
-6.	- Al hacer clic en "Realizar Pedido", el sistema valida que:
-	Se haya seleccionado un método de envío.
-	Se haya seleccionado un método de pago.
-	Los campos habilitados de dirección (dependiendo del método de envío) estén completos.
-	Los campos de dirección no contengan caracteres especiales, solo letras y números.
-7.	- Si todas las validaciones son satisfactorias, se muestra un mensaje de éxito y se completa el pedido.
+1.	El cliente accede a la pantalla de "Finalizar Compra" desde el carrito de compras.
+2.	El sistema muestra por pantalla los datos no editables del cliente, incluyendo Nombre y Apellido, Email y Teléfono.
+3.	El cliente debe seleccionar uno de los métodos de envío disponibles:
+   - Envío Local
+   - Envío Provincial
+   - Envío Nacional
+4.	Dependiendo del método de envío seleccionado, los campos de dirección se habilitan o deshabilitan:
+   - Envío Local: Solo el campo de "Dirección" se habilita.
+   - Envío Provincial: Los campos de "Dirección" y "Ciudad" se habilitan, mientras que el campo de "Provincia" se deshabilita y limpia.
+   - Envío Nacional: Todos los campos (Dirección, Ciudad y Provincia) se habilitan.
+Cualquier selección del método de envío limpia los campos de dirección.
+5.	El cliente debe seleccionar uno de los métodos de pago disponibles:
+   - Pago con Mercado Pago
+   - Pago con Tarjeta
+   - Pago con Transferencia Bancaria
+6.	Al hacer clic en "Realizar Pedido", el sistema valida que:
+   - Se haya seleccionado un método de envío.
+   - Se haya seleccionado un método de pago.
+   - Los campos habilitados de dirección (dependiendo del método de envío) estén completos.
+   - Los campos de dirección no contengan caracteres especiales, solo letras y números.
+7.	Si todas las validaciones son satisfactorias, se muestra un mensaje de éxito y se completa el pedido.
 
 Flujos Alternativos:
-•	F1: Si el cliente no selecciona un método de envío, el sistema mostrará una alerta indicando que debe seleccionar uno.
-•	F2: Si el cliente no selecciona un método de pago, el sistema mostrará una alerta indicando que debe seleccionar uno.
-•	F3: Si el cliente no completa los campos de dirección habilitados, se mostrará una alerta indicando que debe completar dichos campos según el método de envío seleccionado.
-•	F4: Si los campos de dirección contienen caracteres especiales, se mostrará una alerta indicando que solo se permiten letras y números.
+- F1: Si el cliente no selecciona un método de envío, el sistema mostrará una alerta indicando que debe seleccionar uno.
+- F2: Si el cliente no selecciona un método de pago, el sistema mostrará una alerta indicando que debe seleccionar uno.
+- F3: Si el cliente no completa los campos de dirección habilitados, se mostrará una alerta indicando que debe completar dichos campos según el método de envío seleccionado.
+- F4: Si los campos de dirección contienen caracteres especiales, se mostrará una alerta indicando que solo se permiten letras y números.
 
 Precondiciones:
-•	El cliente ha iniciado sesión y ha agregado productos al carrito de compras o ha seleccionado un producto individual para comprarlo.
+- El cliente ha iniciado sesión y ha agregado productos al carrito de compras o ha seleccionado un producto individual para comprarlo.
 
 Postcondiciones:
-•	El pedido es procesado con éxito y el cliente recibe una confirmación del mismo.
+- El pedido es procesado con éxito y el cliente recibe una confirmación del mismo.
 
 
 ***Caso de Uso: Iniciar Sesión***
