@@ -2,8 +2,6 @@
 
 - Se propusieron diagramas detallados para las clases a implementar y sus respectivas funcionalidades.
   
-- En esta primera iteración, se logró una correcta implementación y conexión con la base de datos a través de un sistema de persistencia.
-
 - Se diseñaron adecuadamente las pantallas, optimizando su uso para el proyecto integrador.
 
 - Se generó un código apropiado para cada una de las clases definidas en el diagrama de clases.
