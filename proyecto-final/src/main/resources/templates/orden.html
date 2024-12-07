@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            accent-color: #45a049;
+        }
+
+        .botones {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-realizar-pedido,
+        .btn-cancelar {
+            width: 48%;
+            padding: 15px 20px;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .btn-realizar-pedido {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-realizar-pedido:hover {
+            background-color: #317933;
+        }
+
+        .btn-cancelar {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .btn-cancelar:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Finalizar Compra</h1>
+
+        <!-- Contenedor Datos para el envío -->
+        <div class="form-section">
+            <h2>Datos para el envío</h2>
+            <!-- Datos no editables -->
+            <div class="form-group">
+                <p><strong>Nombre y Apellido:</strong> <span th:text="${session.usuario.nombre}"></span> <span th:text="${session.usuario.apellido}"></span></p>
+            </div>
+            <div class="form-group">
+                <p><strong>Email:</strong> <span th:text="${session.usuario.correo}"></span></p>
+            </div>
+            <h3>Seleccione el método de envío que le corresponda</h3>
+            <!-- Métodos de envío -->
+            <div class="payment-option">
+                <input type="radio" id="envio-local" name="metodo-envio" value="local" onclick="handleEnvioChange()">
+                <label for="envio-local">Envío Local</label>
+            </div>
+            <div class="payment-option">
+                <input type="radio" id="envio-provincial" name="metodo-envio" value="provincial" onclick="handleEnvioChange()">
+                <label for="envio-provincial">Envío Provincial</label>
+            </div>
+            <div class="payment-option">
+                <input type="radio" id="envio-nacional" name="metodo-envio" value="nacional" onclick="handleEnvioChange()">
+                <label for="envio-nacional">Envío Nacional</label>
+            </div>
+            <!-- Campos editables -->
+            <div class="form-group">
+                <label for="direccion-envio">Dirección</label>
+                <input type="text" id="direccion-envio" placeholder="Ingresa tu dirección" disabled>
+            </div>
+            <div class="form-group">
+                <label for="ciudad-envio">Ciudad</label>
+                <input type="text" id="ciudad-envio" placeholder="Ingresa tu ciudad" disabled>
+            </div>
+            <div class="form-group">
+                <label for="provincia-envio">Provincia</label>
+                <input type="text" id="provincia-envio" placeholder="Ingresa tu provincia" disabled>
+            </div>
+        </div>
+        <!-- Contenedor Métodos de Pago -->
+        <div class="form-section" style="text-align: center;">
+            <h2>Métodos de Pago</h2>
+            <div class="payment-option">
+                <input type="radio" id="pago-efectivo" name="metodo-pago" value="pago">
+                <label for="pago-efectivo">Pago con Mercado Pago</label>
+            </div>
+            <div class="payment-option">
+                <input type="radio" id="pago-tarjeta" name="metodo-pago" value="tarjeta">
+                <label for="pago-tarjeta">Pago con Tarjeta</label>
+            </div>
+            <div class="payment-option">
+                <input type="radio" id="pago-transferencia" name="metodo-pago" value="transferencia">
+                <label for="pago-transferencia">Pago con Transferencia Bancaria</label>
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="botones">
+            <button class="btn-realizar-pedido" th:onclick="validarFormulario()">Realizar Pedido</button>
+            <button class="btn-cancelar" >
+                <a href="/carrito" class="nav-link">Cancelar</a>
+            </button>
+        </div>
+    </div>
+
+    <script>
+    function handleEnvioChange() {
+        const envioLocal = document.getElementById('envio-local').checked;
+        const envioProvincial = document.getElementById('envio-provincial').checked;
+        const envioNacional = document.getElementById('envio-nacional').checked;
+
+        const direccion = document.getElementById('direccion-envio');
+        const ciudad = document.getElementById('ciudad-envio');
+        const provincia = document.getElementById('provincia-envio');
+
+        // Limpiar campos al cambiar método de envío
+        direccion.value = '';
+        ciudad.value = '';
+        provincia.value = '';
+
+        direccion.disabled = !envioLocal && !envioProvincial && !envioNacional;
+        ciudad.disabled = !envioProvincial && !envioNacional;
+        provincia.disabled = !envioNacional;
+
+        if (envioLocal) {
+            ciudad.disabled = true;
+            provincia.disabled = true;
+        } else if (envioProvincial) {
+            provincia.disabled = true;
+        }
+    }
+
+    function validarTexto(input) {
+        const regex = /^[a-zA-Z0-9\s]*$/;
+        const invalidChars = /[^a-zA-Z0-9\s]/g;
+        if (!regex.test(input.value)) {
+            input.value = input.value.replace(invalidChars, '');
+            mostrarAlerta("Solo se permiten letras y números.");
+        }
+    }
+
+    function validarCampos() {
+        const direccion = document.getElementById('direccion-envio').value.trim();
+        const ciudad = document.getElementById('ciudad-envio').value.trim();
+        const provincia = document.getElementById('provincia-envio').value.trim();
+        const regex = /^[a-zA-Z0-9\s]+$/;
+
+        if ((direccion && !regex.test(direccion)) || (ciudad && !regex.test(ciudad)) || (provincia && !regex.test(provincia))) {
+            mostrarAlerta("Los campos de texto solo pueden contener letras y números.");
+            return false;
+        }
+        return true;
+    }
+
+    function validarFormulario() {
+        const envioLocal = document.getElementById('envio-local').checked;
+        const envioProvincial = document.getElementById('envio-provincial').checked;
+        const envioNacional = document.getElementById('envio-nacional').checked;
+        const metodoPago = document.querySelector('input[name="metodo-pago"]:checked')?.value;
+        const metodoEnvio = document.querySelector('input[name="metodo-envio"]:checked')?.value;
+
+        const direccion = document.getElementById('direccion-envio').value.trim();
+        const ciudad = document.getElementById('ciudad-envio').value.trim();
+        const provincia = document.getElementById('provincia-envio').value.trim();
+
+        if (!envioLocal && !envioProvincial && !envioNacional) {
+            mostrarAlerta('Por favor, seleccione un método de envío.');
+            return;
+        }
+
+        if (!metodoPago) {
+            mostrarAlerta('Por favor, seleccione un método de pago.');
+            return;
+        }
+
+        if (envioLocal && direccion === '') {
+            mostrarAlerta('Por favor, complete la dirección.');
+            return;
+        }
+
+        if (envioProvincial && (direccion === '' || ciudad === '')) {
+            mostrarAlerta('Por favor, complete la dirección y la ciudad.');
+            return;
+        }
+
+        if (envioNacional && (direccion === '' || ciudad === '' || provincia === '')) {
+            mostrarAlerta('Por favor, complete todos los campos de envío.');
+            return;
+        }
+
+        if (!validarCampos()) {
+            return;
+        }
+
+        fetch('/orden/realizar', {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ direccion: direccion, ciudad: ciudad, provincia: provincia, metodoPago: metodoPago, metodoEnvio: metodoEnvio})
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("Pedido realizado correctamente.");
+                window.location.href = '/inicio'; // Redirige después de una respuesta exitosa
+            } else {
+                response.text().then(errorMessage => {
+                mostrarAlerta("Error al realizar el pedido: " + errorMessage);
+            });
+            }
+        })
+        .catch(error => {
+            mostrarAlerta("Ocurrió un error al comunicarse con el servidor: " + error.message);
+        });
+    }
+
+    function mostrarAlerta(mensaje) {
+        const alertDiv = document.createElement('div');
+        alertDiv.style.position = 'fixed';
+        alertDiv.style.top = '50%';
+        alertDiv.style.left = '50%';
+        alertDiv.style.transform = 'translate(-50%, -50%)';
+        alertDiv.style.backgroundColor = '#fff';
+        alertDiv.style.color = '#000';
+        alertDiv.style.padding = '20px';
+        alertDiv.style.border = '2px solid #000';
+        alertDiv.style.borderRadius = '5px';
+        alertDiv.style.zIndex = '1000';
+        alertDiv.innerText = mensaje;
+
+        const closeButton = document.createElement('button');
+        closeButton.style.marginTop = '10px';
+        closeButton.innerText = 'Cerrar';
+        closeButton.onclick = function() {
+            document.body.removeChild(alertDiv);
+        };
+
+        alertDiv.appendChild(closeButton);
+        document.body.appendChild(alertDiv);
+    }
+</script>
+
+
+
+
+</body>
+
+</html>

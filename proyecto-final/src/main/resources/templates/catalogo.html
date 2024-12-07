@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .carrito-lateral {
+            position: fixed;
+            /* Fija el carrito en un lugar de la página */
+            top: 90%;
+            /*  verticalmente  */
+            right: 10px;
+            /* Sepára un poco del borde derecho */
+            transform: translateY(-50%);
+            /* Centrado vertical */
+            z-index: 1000;
+            /* que esté encima de otros elementos */
+        }
+
+        .carrito-lateral img {
+            width: 100px;
+            /* Ajusta el tamaño según lo que necesites */
+            height: 100px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        let productoSeleccionado;
+
+        function mostrarModalCantidad(boton) {
+            productoSeleccionado = boton.getAttribute('data-idProducto'); // Guarda el botón para acceder a su data-idProducto
+            const modal = new bootstrap.Modal(document.getElementById('modalCantidad'));
+            modal.show(); // Muestra el modal
+        }
+
+        function agregarAlCarrito(cantidad) {
+            if (cantidad <= 0) {
+                alert('La cantidad debe ser mayor a 0');
+                return;
+            }
+            fetch('/inicio/agregar', {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ idProducto: productoSeleccionado, cantidad: cantidad })
+            })
+                .then(response => response.text())
+                .then(message => {
+                    alert(message);
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('modalCantidad'));
+                    modal.hide();
+                })
+                .catch(error => {
+                    alert('Hubo un error al agregar el producto: ' + error);
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('modalCantidad'));
+                    modal.hide();
+                });
+        }
+
+
+
+    </script>
+
+</head>
+
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/catalogo">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
+                </ul>
+                <!-- Mostrar saludo y botón según estado de sesión -->
+                <div th:if="${session.usuario != null}">
+                    <span th:text="'Hola, ' + ${session.usuario.nombreCompleto} + '!'" class="me-2"></span>
+                    <a class="btn btn-outline-danger" href="/cerrar-sesion" aria-label="Cerrar sesión">Cerrar sesión</a>
+                </div>
+
+                <div th:if="${session.usuario == null}">
+                    <a class="btn btn-outline-success me-2" href="sesion" aria-label="Iniciar sesión">Iniciar sesión</a>
+                    <a class="btn btn-outline-success" href="registro" aria-label="Registrarse">Registrarse</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="row mt-3">
+            <!-- Columna para la barra de búsqueda -->
+            <div class="col-md-8">
+                <form th:action="@{/catalogo}" method="get">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Búsqueda" name="buscar"
+                            th:value="${param.buscar}">
+                        <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Columna para el carrito, ajustada a la derecha -->
+            <div class="col-md-4 d-flex justify-content-end align-items-center">
+                <button class="btn" onclick="location.href='/carrito';"
+                    style="background-color: #f5f5dc; color: #000; border: none;">
+                    <img src="./imagenes/images-removebg-preview.png" alt="Imagen"
+                        style="width: 50px; height: 50px; margin-left: 5px;">
+                </button>
+            </div>
+
+            <!-- Filtro de Categorías -->
+            <form th:action="@{/catalogo}" method="get" class="d-flex">
+                <!-- Filtro de Categorías -->
+                <div class="col-md-3">
+                    <select class="form-select" name="categoria" onchange="this.form.submit()"
+                        style="height: 40px; font-size: 16px; width: 200px;">
+                        <option value="">Filtrar por categoría</option>
+                        <option value="moda" th:selected="${param.categoria == 'moda'}">Moda Ecológica</option>
+                        <option value="decoracion" th:selected="${param.categoria == 'decoracion'}">Decoraciones</option>
+                        <option value="muebles" th:selected="${param.categoria == 'muebles'}">Mueblería</option>
+                        <option value="empaques" th:selected="${param.categoria == 'empaques'}">Empaques</option>
+                        <option value="higiene" th:selected="${param.categoria == 'higiene'}">Higiene</option>
+                        <option value="juguetes" th:selected="${param.categoria == 'juguetes'}">Juguetes</option>
+                    </select>
+                </div>
+            
+                <!-- Filtro de Ordenación (Precio) -->
+                <div class="col-md-3">
+                    <select class="form-select" name="ordenar" onchange="this.form.submit()"
+                        style="height: 40px; font-size: 16px;width: 200px;">
+                        <option value="" th:selected="${param.ordenar == null}">Ordenar por...</option>
+                        <option value="menor-precio" th:selected="${param.ordenar == 'menor-precio'}">Menor precio</option>
+                        <option value="mayor-precio" th:selected="${param.ordenar == 'mayor-precio'}">Mayor precio</option>
+                    </select>
+                </div>
+            </form>
+            
+        </div>
+
+        <!-- Productos -->
+        <div class="catalogo">
+            <!-- Iterar sobre productos -->
+            <div class="producto" th:each="producto : ${productos}">
+                <a th:href="@{/productos/producto/{id}(id=${producto.idProducto})}"
+                    style="text-decoration: none; color: inherit;">
+                    <img th:src="${producto.imgProducto}" alt="Imagen del producto" class="producto-imagen">
+                    <h3 th:text="${producto.nombre}">Nombre Producto</h3>
+                    <p th:text="'Precio: ' + ${producto.precio}">Precio</p>
+
+                    <a class="boton" th:data-idProducto="${producto.idProducto}"
+                        th:onclick="mostrarModalCantidad(this)">
+                        Agregar al carrito
+                    </a>
+                    
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="modalCantidad" tabindex="-1" aria-labelledby="modalCantidadLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCantidadLabel">Seleccionar Cantidad</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="cantidadProducto" class="form-label">Cantidad:</label>
+                    <input type="number" id="cantidadProducto" class="form-control" min="1" value="1">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="confirmarCantidad"
+                        th:onclick="agregarAlCarrito(cantidadProducto.value)">Agregar al Carrito</button>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+
+
+
+<!-- Categorías (Lado derecho de la pantalla) 
+        <aside class="categorias">
+            <h3>Categorías</h3>
+            <ul>
+                <li><a href="#">Moda Ecológica</a></li>
+                <li><a href="#">Decoraciones</a></li>
+                <li><a href="#">Mueblería</a></li>
+                <li><a href="#">Empaques</a></li>
+                <li><a href="#">Higiene</a></li>
+                <li><a href="#">Juguetes</a></li>
+            </ul>
+        </aside>*/ -->

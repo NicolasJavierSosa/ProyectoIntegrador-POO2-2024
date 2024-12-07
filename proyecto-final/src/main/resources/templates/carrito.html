@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .cart-container {
+            width: 100%;
+            max-width: 2200px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        .cart-table th,
+        .cart-table td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-table th {
+            background-color: #f8f8f8;
+        }
+
+        .product-details {
+            display: flex;
+            align-items: center;
+        }
+
+        .product-id {
+            font-weight: bold;
+            margin-right: 8px;
+            color: #555;
+        }
+
+        .product-name {
+            font-size: 16px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 50px;
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .cart-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin: 20px 0;
+        }
+
+        .cart-actions button {
+            padding: 10px 20px;
+            background-color: #45a049;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cart-actions button:hover {
+            background-color: #45a049;
+        }
+
+        .cart-totals {
+            text-align: right;
+        }
+
+        .cart-totals p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .cart-totals span {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .checkout-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .checkout-btn:hover {
+            background-color: #218838;
+        }
+
+        header {
+            background-image: url('/imagenes/pngtree-rustic-bamboo-fence-panels-and-textural-patterns-image_13698878.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 220px;
+            /* Ajusta este valor a la altura que desees */
+            margin-bottom: 20px;
+            /* Agrega espacio debajo del header */
+        }
+
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function confirmarEliminacion(nombreProducto) {
+            const prod = nombreProducto.getAttribute('data-prods');
+            if (confirm(`¿Seguro que quiere eliminar todos los "${prod}" del carrito?`)) {
+                fetch('/carrito/eliminar', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prod: prod })
+                }).then(response => {
+                    if (response.ok) {
+                        location.reload(); // Recargar la página
+                    } else {
+                        alert('Error al eliminar el producto');
+                    }
+                });
+            }
+        }
+
+        function verificarCarrito() {
+            fetch('/carrito/verificar', {
+                method: "POST",
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert("Rellene los datos a continuacion");
+                        window.location.href = '/orden';
+                    }
+                    else {
+                        alert("El carrito está vacío");
+                    }
+                })
+        }
+        function validarCantidad(inputElement) {
+            const cantidadSolicitada = inputElement.value;
+            const stockDisponible = inputElement.getAttribute('data-stock');
+            const nombreProducto = inputElement.closest('tr').querySelector('.product-id').innerText;
+
+            if (cantidadSolicitada > stockDisponible) {
+                alert(`No puedes agregar más de ${stockDisponible} unidades del producto "${nombreProducto}".`);
+                inputElement.value = stockDisponible; // Restablecer al máximo disponible
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/catalogo">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
+                </ul>
+                <!-- Mostrar saludo y botón según estado de sesión -->
+                <div th:if="${session.usuario != null}">
+                    <span th:text="'Hola, ' + ${session.usuario.nombreCompleto} + '!'" class="me-2"></span>
+                    <a class="btn btn-outline-danger" href="/cerrar-sesion" id="btn-cerrar-sesion">Cerrar sesión</a>
+                </div>
+
+                <div th:if="${session.usuario == null}">
+                    <a class="btn btn-outline-success me-2" href="sesion" aria-label="Iniciar sesión">Iniciar sesión</a>
+                    <a class="btn btn-outline-success" href="registro" aria-label="Registrarse">Registrarse</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="cart-container">
+        <h1>Carrito</h1>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                    <th>Descuento x Cantidad</th>
+                    <th>Descuento x Temporada</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody th:each="producto: ${compras}">
+                <tr>
+                    <td>
+                        <div class="product-details">
+                            <span th:class="product-id" th:text="${producto['nombre']}">Producto 1:</span>
+                        </div>
+                    </td>
+                    <td th:text="${producto['precio']}">Precio</td>
+                    <td>
+                        <input type="number" th:value="${producto['cantidad']}" min="1"
+                            th:data-idProducto="${producto['idProducto']}"
+                            th:data-stock="${producto['stockDisponible']}" class="cantidad-carrito"
+                            onchange="validarCantidad(this)">
+                    </td>
+                    <td th:text="${producto['subtotal']}">Subtotal</td>
+                    <td th:text="${producto['descVolumen']}">Descuento x Cantidad</td>
+                    <td th:text="${producto['descTemporada']}">Descuento x Temporada</td>
+                    <td th:text="${producto['total']}">Total</td>
+                    <td>
+                        <button class="btn btn-danger" th:data-prods="${producto['nombre']}"
+                            th:onclick="confirmarEliminacion(this)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="cart-totals">
+            <p>Subtotal: <span id="cart-subtotal" th:text="${subtotalCarrito}">Subtotal</span></p>
+            <p>Total: <span id="cart-total" th:text="${totalCarrito}">Total</span></p>
+            <button class="checkout-btn" th:onclick="verificarCarrito()">
+                Proceder al pago
+            </button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Tienda Ecológica. Todos los derechos reservados.</p>
+        <a href="#">Política de privacidad</a> | <a href="#">Términos y condiciones</a>
+    </footer>
+</body>
+
+</html>
